@@ -327,6 +327,10 @@ static void release_sensor_background(void)
 #define BOX_LED_W         63
 #define BOX_LED_H         40
 
+/* 退出区域命中容错：贴边按钮适当外扩，提高点击成功率 */
+#define EXIT_HIT_PAD_X    24
+#define EXIT_HIT_PAD_Y    16
+
 static Button s_exit_btn;
 
 static void build_hotspots(void)
@@ -335,6 +339,23 @@ static void build_hotspots(void)
         scale_x(599), scale_y(37), scale_x(82), scale_y(54),
         "EXIT", "", COLOR_BTN_EXIT, COLOR_BTN_EXIT_BDR, NULL
     };
+}
+
+static int hit_exit_button(int x, int y)
+{
+    int pad_x = scale_x(EXIT_HIT_PAD_X);
+    int pad_y = scale_y(EXIT_HIT_PAD_Y);
+    int left = s_exit_btn.x - pad_x;
+    int top = s_exit_btn.y - pad_y;
+    int right = s_exit_btn.x + s_exit_btn.w + pad_x;
+    int bottom = s_exit_btn.y + s_exit_btn.h + pad_y;
+
+    if (left < 0) left = 0;
+    if (top < 0) top = 0;
+    if (right > g_lcd_width) right = g_lcd_width;
+    if (bottom > g_lcd_height) bottom = g_lcd_height;
+
+    return (x >= left && x < right && y >= top && y < bottom);
 }
 
 static void draw_value_box_text(int x, int y, int w, int h, const char *text,
@@ -475,7 +496,7 @@ void module_sensor(void)
         if (ret != 1) continue;   /* 超时(0) 或设备错误(-1)，继续刷新 */
 
         /* 判断是否命中退出按钮 */
-        if (ui_hit_test(&s_exit_btn, 1, x, y) != NULL) {
+        if (hit_exit_button(x, y)) {
             /* 退出前关闭所有联动设备 */
             led_set(8, 0);
             beep_set(0);

@@ -106,10 +106,11 @@ int touch_get_tap(int *out_x, int *out_y)
                 int cur_px = map_coord(raw_x, &rx, g_lcd_width);
                 int cur_py = map_coord(raw_y, &ry, g_lcd_height);
                 int dist   = abs_val(cur_px - tap_x) + abs_val(cur_py - tap_y);
-                if (dist < TAP_THRESHOLD) {
+                if (dist <= TAP_THRESHOLD) {
                     close(fd);
-                    *out_x = tap_x;
-                    *out_y = tap_y;
+                    /* 使用按下/抬起中点，减小手抖造成的命中偏移 */
+                    *out_x = (tap_x + cur_px) / 2;
+                    *out_y = (tap_y + cur_py) / 2;
                     return 0;
                 }
                 /* 滑动 → 忽略，继续等待 */
@@ -194,6 +195,7 @@ int touch_get_tap_timeout(int *out_x, int *out_y, int timeout_ms)
     struct input_event ev;
     int raw_x = 0, raw_y = 0;
     int tap_x = 0, tap_y = 0;
+    const int tap_threshold = TAP_THRESHOLD + 10;
 
     struct timeval tv;
     tv.tv_sec  = timeout_ms / 1000;
@@ -224,10 +226,11 @@ int touch_get_tap_timeout(int *out_x, int *out_y, int timeout_ms)
                 int cur_px = map_coord(raw_x, &rx, g_lcd_width);
                 int cur_py = map_coord(raw_y, &ry, g_lcd_height);
                 int dist   = abs_val(cur_px - tap_x) + abs_val(cur_py - tap_y);
-                if (dist < TAP_THRESHOLD) {
+                if (dist <= tap_threshold) {
                     close(fd);
-                    *out_x = tap_x;
-                    *out_y = tap_y;
+                    /* 超时版适当放宽阈值，降低点击偶发漏判 */
+                    *out_x = (tap_x + cur_px) / 2;
+                    *out_y = (tap_y + cur_py) / 2;
                     return 1;
                 }
             }
