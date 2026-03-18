@@ -33,10 +33,13 @@
 #include "touch.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <termios.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
 
 /* ----------------------------------------------------------------
  * 硬件端口（GEC6818：串口3 = ttySAC2，串口4 = ttySAC3）
@@ -179,6 +182,110 @@ static void beep_set(int on)
  * UI 渲染
  * ---------------------------------------------------------------- */
 
+static const char *const SENSOR_PANEL_BMP_CANDIDATES[] = {
+    "assets/images/sensorPanel.bmp",
+    "../assets/images/sensorPanel.bmp",
+    "sensorPanel.bmp",
+};
+
+#define SENSOR_DESIGN_W  800
+#define SENSOR_DESIGN_H  480
+
+static unsigned short *g_sensor_bg_rgb565 = NULL;
+static int g_sensor_bg_w = 0;
+static int g_sensor_bg_h = 0;
+
+static int scale_x(int x) { return x * g_lcd_width / SENSOR_DESIGN_W; }
+static int scale_y(int y) { return y * g_lcd_height / SENSOR_DESIGN_H; }
+
+static int load_bmp_scaled_rgb565(const char *path, unsigned short *dst, int dst_w, int dst_h)
+{
+    int fd = open(path, O_RDONLY);
+    if (fd < 0)
+        return -1;
+
+    struct stat st;
+    if (fstat(fd, &st) != 0 || st.st_size < 54) {
+        close(fd);
+        return -1;
+    }
+
+    size_t file_size = (size_t)st.st_size;
+    const unsigned char *file_map = (const unsigned char *)mmap(NULL, file_size, PROT_READ, MAP_PRIVATE, fd, 0);
+    close(fd);
+    if (file_map == MAP_FAILED)
+        return -1;
+
+    unsigned short magic = *(const unsigned short *)(file_map + 0);
+    int data_offset = *(const int *)(file_map + 10);
+    int bmp_w = *(const int *)(file_map + 18);
+    int bmp_h = *(const int *)(file_map + 22);
+    short depth = *(const short *)(file_map + 28);
+
+    if (magic != 0x4D42 || (depth != 24 && depth != 32) || bmp_w <= 0 || bmp_h == 0 || data_offset < 54) {
+        munmap((void *)file_map, file_size);
+        return -1;
+    }
+
+    int bpp = depth / 8;
+    int abs_h = (bmp_h > 0) ? bmp_h : -bmp_h;
+    int bottom_up = (bmp_h > 0);
+    int stride = (bmp_w * bpp + 3) & ~3;
+    const unsigned char *src = file_map + data_offset;
+
+    for (int y = 0; y < dst_h; y++) {
+        int src_y = y * abs_h / dst_h;
+        int row = bottom_up ? (abs_h - 1 - src_y) : src_y;
+        const unsigned char *row_ptr = src + row * stride;
+
+        for (int x = 0; x < dst_w; x++) {
+            int src_x = x * bmp_w / dst_w;
+            const unsigned char *p = row_ptr + src_x * bpp;
+            int b = p[0];
+            int g = p[1];
+            int r = p[2];
+            dst[y * dst_w + x] = (unsigned short)(((r & 0xF8) << 8) |
+                                                  ((g & 0xFC) << 3) |
+                                                  (b >> 3));
+        }
+    }
+
+    munmap((void *)file_map, file_size);
+    return 0;
+}
+
+static int ensure_sensor_background_loaded(void)
+{
+    if (g_sensor_bg_rgb565 != NULL && g_sensor_bg_w == g_lcd_width && g_sensor_bg_h == g_lcd_height)
+        return 0;
+
+    free(g_sensor_bg_rgb565);
+    g_sensor_bg_rgb565 = (unsigned short *)malloc((size_t)g_lcd_width * g_lcd_height * sizeof(unsigned short));
+    if (g_sensor_bg_rgb565 == NULL)
+        return -1;
+
+    g_sensor_bg_w = g_lcd_width;
+    g_sensor_bg_h = g_lcd_height;
+
+    int path_count = (int)(sizeof(SENSOR_PANEL_BMP_CANDIDATES) / sizeof(SENSOR_PANEL_BMP_CANDIDATES[0]));
+    for (int i = 0; i < path_count; i++) {
+        if (load_bmp_scaled_rgb565(SENSOR_PANEL_BMP_CANDIDATES[i], g_sensor_bg_rgb565, g_sensor_bg_w, g_sensor_bg_h) == 0)
+            return 0;
+    }
+
+    free(g_sensor_bg_rgb565);
+    g_sensor_bg_rgb565 = NULL;
+    return -1;
+}
+
+static void release_sensor_background(void)
+{
+    free(g_sensor_bg_rgb565);
+    g_sensor_bg_rgb565 = NULL;
+    g_sensor_bg_w = 0;
+    g_sensor_bg_h = 0;
+}
+
 /* 数据行布局 */
 #define LABEL_X   60    /* 标签起始列 */
 #define VALUE_X  280    /* 数值起始列（清除旧值宽度到屏幕右边） */
@@ -189,25 +296,84 @@ static void beep_set(int on)
 #define ROW3_Y   (ROW2_Y + ROW_H)
 #define STATUS_Y  320   /* 联动状态行 */
 
-static const Button s_exit_btn = {
-    310, 390, 180, 60, "EXIT", "", COLOR_BTN_EXIT, COLOR_BTN_EXIT_BDR, NULL
-};
+/* 设计图中数值框位置（800x480） */
+#define BOX_LIGHT_X      285
+#define BOX_LIGHT_Y      149
+#define BOX_LIGHT_W       58
+#define BOX_LIGHT_H       40
+
+#define BOX_HUM_X        554
+#define BOX_HUM_Y        149
+#define BOX_HUM_W         62
+#define BOX_HUM_H         40
+
+#define BOX_TEMP_X       285
+#define BOX_TEMP_Y       204
+#define BOX_TEMP_W        58
+#define BOX_TEMP_H        40
+
+#define BOX_GAS_X        554
+#define BOX_GAS_Y        204
+#define BOX_GAS_W         62
+#define BOX_GAS_H         40
+
+#define BOX_BEEP_X       317
+#define BOX_BEEP_Y       331
+#define BOX_BEEP_W        63
+#define BOX_BEEP_H        40
+
+#define BOX_LED_X        599
+#define BOX_LED_Y        331
+#define BOX_LED_W         63
+#define BOX_LED_H         40
+
+static Button s_exit_btn;
+
+static void build_hotspots(void)
+{
+    s_exit_btn = (Button){
+        scale_x(599), scale_y(37), scale_x(82), scale_y(54),
+        "EXIT", "", COLOR_BTN_EXIT, COLOR_BTN_EXIT_BDR, NULL
+    };
+}
+
+static void draw_value_box_text(int x, int y, int w, int h, const char *text,
+                                unsigned short fg, unsigned short bg)
+{
+    int sx = scale_x(x);
+    int sy = scale_y(y);
+    int sw = scale_x(w);
+    int sh = scale_y(h);
+    if (sw < 8) sw = 8;
+    if (sh < 16) sh = 16;
+
+    lcd_fill_rect(sx + 1, sy + 1, sw - 2, sh - 2, bg);
+
+    int len = (int)strlen(text);
+    int tx = sx + (sw - len * 8) / 2;
+    int ty = sy + (sh - 16) / 2;
+    if (tx < sx + 1) tx = sx + 1;
+    if (ty < sy + 1) ty = sy + 1;
+    lcd_draw_string(tx, ty, text, fg, bg);
+}
 
 static void draw_frame(void)
 {
-    lcd_fill_rect(0, 0, g_lcd_width, g_lcd_height, COLOR_BG_DARK);
-    lcd_fill_rect(0, 0, g_lcd_width, 55, COLOR_HEADER_BG);
-    lcd_draw_hline(0, 55, g_lcd_width, 3, COLOR_SENSOR_BORDER);
-    /* "SENSOR DATA" = 11 chars × 8px = 88px → center: (800-88)/2 = 356 */
-    lcd_draw_string(356, 20, "SENSOR DATA", COLOR_WHITE, COLOR_HEADER_BG);
+    if (ensure_sensor_background_loaded() == 0) {
+        lcd_draw_image(0, 0, g_sensor_bg_w, g_sensor_bg_h, g_sensor_bg_rgb565);
+    } else {
+        lcd_fill_rect(0, 0, g_lcd_width, g_lcd_height, COLOR_BG_DARK);
+        lcd_fill_rect(0, 0, g_lcd_width, 55, COLOR_HEADER_BG);
+        lcd_draw_hline(0, 55, g_lcd_width, 3, COLOR_SENSOR_BORDER);
+        lcd_draw_string(356, 20, "SENSOR DATA", COLOR_WHITE, COLOR_HEADER_BG);
 
-    /* 固定标签（只绘制一次，数值区单独刷新） */
-    lcd_draw_string(LABEL_X, ROW0_Y, "LIGHT:", COLOR_GRAY_LIGHT, COLOR_BG_DARK);
-    lcd_draw_string(LABEL_X, ROW1_Y, "TEMP:",  COLOR_GRAY_LIGHT, COLOR_BG_DARK);
-    lcd_draw_string(LABEL_X, ROW2_Y, "HUM:",   COLOR_GRAY_LIGHT, COLOR_BG_DARK);
-    lcd_draw_string(LABEL_X, ROW3_Y, "GAS:",   COLOR_GRAY_LIGHT, COLOR_BG_DARK);
+        lcd_draw_string(LABEL_X, ROW0_Y, "LIGHT:", COLOR_GRAY_LIGHT, COLOR_BG_DARK);
+        lcd_draw_string(LABEL_X, ROW1_Y, "TEMP:",  COLOR_GRAY_LIGHT, COLOR_BG_DARK);
+        lcd_draw_string(LABEL_X, ROW2_Y, "HUM:",   COLOR_GRAY_LIGHT, COLOR_BG_DARK);
+        lcd_draw_string(LABEL_X, ROW3_Y, "GAS:",   COLOR_GRAY_LIGHT, COLOR_BG_DARK);
 
-    ui_draw_button(&s_exit_btn);
+        ui_draw_button(&s_exit_btn);
+    }
 }
 
 /**
@@ -215,6 +381,34 @@ static void draw_frame(void)
  */
 static void update_values(const int gy39[3], int gas_ppm, int led_on, int beep_on)
 {
+    if (g_sensor_bg_rgb565 != NULL) {
+        char buf[16];
+        const unsigned short box_bg = RGB565(245, 245, 245);
+
+        snprintf(buf, sizeof(buf), "%d", gy39[0]);
+        draw_value_box_text(BOX_LIGHT_X, BOX_LIGHT_Y, BOX_LIGHT_W, BOX_LIGHT_H,
+                            buf, COLOR_BLACK, box_bg);
+
+        snprintf(buf, sizeof(buf), "%d", gy39[2]);
+        draw_value_box_text(BOX_HUM_X, BOX_HUM_Y, BOX_HUM_W, BOX_HUM_H,
+                            buf, COLOR_BLACK, box_bg);
+
+        snprintf(buf, sizeof(buf), "%d", gy39[1]);
+        draw_value_box_text(BOX_TEMP_X, BOX_TEMP_Y, BOX_TEMP_W, BOX_TEMP_H,
+                            buf, COLOR_BLACK, box_bg);
+
+        snprintf(buf, sizeof(buf), "%d", gas_ppm);
+        draw_value_box_text(BOX_GAS_X, BOX_GAS_Y, BOX_GAS_W, BOX_GAS_H,
+                            buf, (gas_ppm > GAS_THRESHOLD_PPM) ? COLOR_BTN_EXIT : COLOR_BLACK, box_bg);
+
+        draw_value_box_text(BOX_BEEP_X, BOX_BEEP_Y, BOX_BEEP_W, BOX_BEEP_H,
+                            beep_on ? "ALARM" : "OK", beep_on ? COLOR_BTN_EXIT : COLOR_BLACK, box_bg);
+
+        draw_value_box_text(BOX_LED_X, BOX_LED_Y, BOX_LED_W, BOX_LED_H,
+                            led_on ? "ON" : "OFF", led_on ? COLOR_LED_MAIN : COLOR_BLACK, box_bg);
+        return;
+    }
+
     char buf[32];
     const int val_w = g_lcd_width - VALUE_X;  /* 数值区宽度 */
 
@@ -256,6 +450,7 @@ void module_sensor(void)
     int led_on       = 0;
     int beep_on      = 0;
 
+    build_hotspots();
     draw_frame();
 
     while (1) {
@@ -284,6 +479,7 @@ void module_sensor(void)
             /* 退出前关闭所有联动设备 */
             led_set(8, 0);
             beep_set(0);
+            release_sensor_background();
             return;
         }
     }
