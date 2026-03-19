@@ -17,6 +17,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
+#include <dirent.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/mman.h>   /* mmap / munmap */
@@ -25,10 +27,24 @@
 /* ----------------------------------------------------------------
  * 资源配置
  * ---------------------------------------------------------------- */
-static const char *const BMP_LIST[] = {
-    "1.bmp",
+#ifndef PATH_MAX
+#define PATH_MAX 4096
+#endif
+
+#define MAX_BMP_FILES 64
+
+static const char *const BMP_DIR_CANDIDATES[] = {
+    "assets/png_images",
+    "assets/images",
+    "./assets/png_images",
+    "./assets/images",
+    "../assets/png_images",
+    "../assets/images",
+    ".",
 };
-#define BMP_COUNT  ((int)(sizeof(BMP_LIST) / sizeof(BMP_LIST[0])))
+
+static char g_bmp_list[MAX_BMP_FILES][PATH_MAX];
+static int g_bmp_count = 0;
 
 #define IMG_X  0
 #define IMG_Y  58
@@ -36,7 +52,57 @@ static const char *const BMP_LIST[] = {
 #define IMG_H  302
 
 /* 内存缓存池：存储解码并缩放后的 RGB565 像素数据 */
-static unsigned short *g_photo_cache[BMP_COUNT] = {NULL};
+static unsigned short *g_photo_cache[MAX_BMP_FILES] = {NULL};
+
+static int has_bmp_ext(const char *name)
+{
+    const char *dot = strrchr(name, '.');
+    if (dot == NULL)
+        return 0;
+    return (tolower((unsigned char)dot[1]) == 'b' &&
+            tolower((unsigned char)dot[2]) == 'm' &&
+            tolower((unsigned char)dot[3]) == 'p' &&
+            dot[4] == '\0');
+}
+
+static int cmp_path_str(const void *a, const void *b)
+{
+    const char *sa = (const char *)a;
+    const char *sb = (const char *)b;
+    return strcmp(sa, sb);
+}
+
+static int load_bmp_list(void)
+{
+    g_bmp_count = 0;
+
+    for (int i = 0; i < (int)(sizeof(BMP_DIR_CANDIDATES) / sizeof(BMP_DIR_CANDIDATES[0])); i++) {
+        const char *dir_path = BMP_DIR_CANDIDATES[i];
+        DIR *dir = opendir(dir_path);
+        if (dir == NULL)
+            continue;
+
+        struct dirent *ent;
+        while ((ent = readdir(dir)) != NULL) {
+            if (ent->d_name[0] == '.')
+                continue;
+            if (!has_bmp_ext(ent->d_name))
+                continue;
+            if (g_bmp_count >= MAX_BMP_FILES)
+                break;
+
+            snprintf(g_bmp_list[g_bmp_count], sizeof(g_bmp_list[g_bmp_count]), "%s/%s", dir_path, ent->d_name);
+            g_bmp_count++;
+        }
+        closedir(dir);
+
+    }
+
+    if (g_bmp_count > 1)
+        qsort(g_bmp_list, (size_t)g_bmp_count, sizeof(g_bmp_list[0]), cmp_path_str);
+
+    return g_bmp_count;
+}
 
 /* ================================================================
  * 高性能图像解码与处理算法
@@ -185,10 +251,13 @@ static void draw_frame(void)
  */
 static void preload_photo(int idx)
 {
+    if (idx < 0 || idx >= g_bmp_count)
+        return;
+
     if (g_photo_cache[idx] == NULL) {
         g_photo_cache[idx] = (unsigned short *)malloc(IMG_W * IMG_H * sizeof(unsigned short));
         if (g_photo_cache[idx] != NULL) {
-            if (load_and_scale_bmp(BMP_LIST[idx], g_photo_cache[idx], IMG_W, IMG_H) != 0) {
+            if (load_and_scale_bmp(g_bmp_list[idx], g_photo_cache[idx], IMG_W, IMG_H) != 0) {
                 memset(g_photo_cache[idx], 0, IMG_W * IMG_H * sizeof(unsigned short));
             }
         }
@@ -200,8 +269,8 @@ static void preload_photo(int idx)
  */
 static void draw_photo_info(int idx)
 {
-    char info[16];
-    snprintf(info, sizeof(info), "%d / %d", idx + 1, BMP_COUNT);
+    char info[32];
+    snprintf(info, sizeof(info), "%d / %d", idx + 1, g_bmp_count);
     int len = (int)strlen(info);
     lcd_fill_rect(0, 365, g_lcd_width, 20, PHOTO_BG_COLOR);
     lcd_draw_string((g_lcd_width - len * 8) / 2, 365, info, PHOTO_SUBTEXT_COLOR, PHOTO_BG_COLOR);
@@ -276,7 +345,7 @@ static void slide_photo(int old_idx, int new_idx, int dir_left)
 /* 释放内存池，防止内存泄漏 */
 static void cleanup_photo_cache(void)
 {
-    for (int i = 0; i < BMP_COUNT; i++) {
+    for (int i = 0; i < MAX_BMP_FILES; i++) {
         if (g_photo_cache[i] != NULL) {
             free(g_photo_cache[i]);
             g_photo_cache[i] = NULL;
@@ -289,7 +358,23 @@ void module_photo(void)
     int cur  = 0;
     int next = 0;
 
+    load_bmp_list();
+
     draw_frame();
+
+    if (g_bmp_count <= 0) {
+        lcd_draw_string(250, 200, "No BMP found in assets/images or assets/png_images", PHOTO_SUBTEXT_COLOR, PHOTO_BG_COLOR);
+        while (1) {
+            int x, y;
+            TouchDir dir = touch_get_event_timeout(&x, &y, 200);
+            if (dir != DIR_TAP)
+                continue;
+
+            const Button *hit = ui_hit_test(s_buttons, PBTN_COUNT, x, y);
+            if (hit != NULL && (PhotoBtnId)(hit - s_buttons) == PBTN_EXIT)
+                return;
+        }
+    }
 
     /* 初始化：加载并直接显示第一张图 */
     preload_photo(cur);
@@ -306,12 +391,12 @@ void module_photo(void)
             int voice_id = -1;
             if (voice_remote_poll_id(&voice_id) == 1) {
                 if (voice_id == 2) {
-                    next = (cur - 1 + BMP_COUNT) % BMP_COUNT;
+                    next = (cur - 1 + g_bmp_count) % g_bmp_count;
                     slide_photo(cur, next, 0);
                     cur = next;
                     draw_photo_info(cur);
                 } else if (voice_id == 3) {
-                    next = (cur + 1) % BMP_COUNT;
+                    next = (cur + 1) % g_bmp_count;
                     slide_photo(cur, next, 1);
                     cur = next;
                     draw_photo_info(cur);
@@ -325,7 +410,7 @@ void module_photo(void)
 
         if (dir == DIR_LEFT || dir == DIR_RIGHT) {
             int dir_left = (dir == DIR_LEFT);
-            next = dir_left ? (cur + 1) % BMP_COUNT : (cur - 1 + BMP_COUNT) % BMP_COUNT;
+            next = dir_left ? (cur + 1) % g_bmp_count : (cur - 1 + g_bmp_count) % g_bmp_count;
             slide_photo(cur, next, dir_left);
             cur = next;
             draw_photo_info(cur);
@@ -338,13 +423,13 @@ void module_photo(void)
 
             switch ((PhotoBtnId)(hit - s_buttons)) {
                 case PBTN_PREV:
-                    next = (cur - 1 + BMP_COUNT) % BMP_COUNT;
+                    next = (cur - 1 + g_bmp_count) % g_bmp_count;
                     slide_photo(cur, next, 0); /* 0 = 向右滑，符合"上一张"的手势方向 */
                     cur = next;
                     draw_photo_info(cur);
                     break;
                 case PBTN_NEXT:
-                    next = (cur + 1) % BMP_COUNT;
+                    next = (cur + 1) % g_bmp_count;
                     slide_photo(cur, next, 1); /* 1 = 向左滑，符合"下一张"的手势方向 */
                     cur = next;
                     draw_photo_info(cur);
