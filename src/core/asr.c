@@ -1,8 +1,14 @@
+#define _XOPEN_SOURCE 700
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
 #include <limits.h>
+
+#ifndef PATH_MAX
+#define PATH_MAX 4096
+#endif
 
 #include "asr.h"
 
@@ -88,7 +94,7 @@ static int build_grm_cb(int ecode, const char *info, void *udata)
 	if (MSP_SUCCESS == ecode && NULL != info) {
 		printf("构建语法成功！ 语法ID:%s\n", info);
 		if (NULL != grm_data)
-			snprintf(grm_data->grammar_id, MAX_GRAMMARID_LEN - 1, info);
+			snprintf(grm_data->grammar_id, MAX_GRAMMARID_LEN - 1, "%s", info);
 	}
 	else
 		printf("构建语法失败！%d\n", ecode);
@@ -101,7 +107,7 @@ static int build_grammar(UserData *udata)
 	FILE *grm_file                           = NULL;
 	char *grm_content                        = NULL;
 	unsigned int grm_cnt_len                 = 0;
-	char grm_build_params[MAX_PARAMS_LEN]    = {NULL};
+	char grm_build_params[MAX_PARAMS_LEN]    = {0};
 	int ret                                  = 0;
 
 	grm_file = fopen(g_grm_file, "rb");	
@@ -164,7 +170,7 @@ static int update_lexicon(UserData *udata)
 {
 	const char *lex_content                   = "丁伟\n黄辣椒";
 	unsigned int lex_cnt_len                  = strlen(lex_content);
-	char update_lex_params[MAX_PARAMS_LEN]    = {NULL}; 
+	char update_lex_params[MAX_PARAMS_LEN]    = {0}; 
 
 	snprintf(update_lex_params, MAX_PARAMS_LEN - 1, 
 		"engine_type = local, text_encoding = UTF-8, \
@@ -247,7 +253,7 @@ void voice_deinit(void)
 
 static int run_asr(UserData *udata, const char *pcm_path)
 {
-	char asr_params[MAX_PARAMS_LEN]    = {NULL};
+	char asr_params[MAX_PARAMS_LEN]    = {0};
 	const char *rec_rslt               = NULL;
 	const char *final_rslt             = NULL;
 	const char *session_id             = NULL;
@@ -287,9 +293,9 @@ static int run_asr(UserData *udata, const char *pcm_path)
 		asr_res_path = %s, sample_rate = %d, \
 		grm_build_path = %s, local_grammar = %s, \
 		result_type = xml, result_encoding = UTF-8, ",
-		ASR_RES_PATH,
+		g_asr_res_path,
 		SAMPLE_RATE_16K,
-		GRM_BUILD_PATH,
+		g_grm_build_path,
 		udata->grammar_id
 		);
 	session_id = QISRSessionBegin(NULL, asr_params, &errcode);
