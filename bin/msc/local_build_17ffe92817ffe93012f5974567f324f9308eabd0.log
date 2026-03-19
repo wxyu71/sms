@@ -1,0 +1,30 @@
+============================================================
+Time  2025/04/07 09:06:02 015 
+============================================================
+[2025/04/07 09:06:02 016] isr_local  2211 os_type is:  Linux  
+[2025/04/07 09:06:02 018] isr_local  2220 SYS_MSG_LOAD_LOCAL  
+[2025/04/07 09:06:02 021] isr_local  2249 SYS_MSG_REGCB_LOCAL| param0 =  msp_status_cb  
+[2025/04/07 09:06:02 027] isr_local  2249 SYS_MSG_REGCB_LOCAL| param0 =  build_grm_cb  
+[2025/04/07 09:06:02 034] isr_local  2262 ASR_LOCAL_MSG_BUILD_GRM  
+[2025/04/07 09:06:02 035] isr_local  1903 grm_init | params:  engine_type = local, 		asr_res_path = fo|res/asr/common.jet, sample_rate = 16000, 		grm_build_path = res/asr/GrmBuilld,   
+[2025/04/07 09:06:02 038] isr_local  805  engine_type  :  local  
+[2025/04/07 09:06:02 040] isr_local  805  asr_res_path  :  fo|res/asr/common.jet  
+[2025/04/07 09:06:02 042] isr_local  805  sample_rate  :  16000  
+[2025/04/07 09:06:02 044] isr_local  805  grm_build_path  :  res/asr/GrmBuilld  
+[2025/04/07 09:06:02 052] isr_local  1002 file count =   1  
+[2025/04/07 09:06:02 055] isr_local  925  file open type is:   fo  
+[2025/04/07 09:06:02 057] isr_local  958  res/asr/common.jet  0  0  
+[2025/04/07 09:06:02 059] isr_local  1020 speech_plus_setting  0  
+[2025/04/07 09:06:02 060] isr_local  1033 2  nil  res/asr/common.jet  0  0  
+[2025/04/07 09:06:02 081] isr_local  1035 res_ver  2  
+[2025/04/07 09:06:02 083] isr_local  1036 res 5  cf10c0dc5a2fdd400602600fa216d247  
+[2025/04/07 09:06:02 084] isr_local  1037 res_new_old_mark  v5pp  
+[2025/04/07 09:06:02 086] isr_local  1038 res_usr_name  ""  
+[2025/04/07 09:06:02 087] isr_local  1039 res_expires  1608085037  
+[2025/04/07 09:06:02 088] isr_local  1040 err  0  
+[2025/04/07 09:06:02 089] isr_local  1071 now expires:  1743987962  1608085037  
+[2025/04/07 09:06:02 090] isr_local  1008 parse respath substr error! :  11212  
+[2025/04/07 09:06:02 091] isr_local  1888 parse_respath error! :  nil  
+[2025/04/07 09:06:02 092] isr_local  1951 grm_init | create grm failed!  
+[2025/04/07 09:06:02 100] isr_local  1644 proc_retcode_grm | errorcode =  11212  
+[2025/04/07 09:06:02 102] isr_local  1636 onGrmLocalServiceCb  11212  nil  

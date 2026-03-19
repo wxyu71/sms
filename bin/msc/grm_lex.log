@@ -1,0 +1,1230 @@
+============================================================
+Time  2025/03/26 16:23:27 591 
+============================================================
+[2025/03/26 16:23:27 594] grm_lex    264  SYS_MSG_LOAD  
+[2025/03/26 16:23:27 598] grm_lex    281  SYS_MSG_REGCB  
+[2025/03/26 16:23:27 602] grm_lex    267  SYS_MSG_UNLOAD  
+[2025/03/26 16:23:27 608] grm_lex    281  SYS_MSG_REGCB  
+[2025/03/26 16:23:27 613] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2025/03/26 16:23:27 614] grm_lex    100  grm_type :  bnf  
+[2025/03/26 16:23:27 615] grm_lex    106  engine_type  :  local  
+[2025/03/26 16:23:27 616] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2025/03/26 16:23:27 617] grm_lex    106  sample_rate  :  16000  
+[2025/03/26 16:23:27 620] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2025/03/26 16:23:27 649] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2025/03/26 16:23:27 774] grm_lex    71   11212  nil  
+============================================================
+Time  2017/01/01 00:00:11 644 
+============================================================
+[2017/01/01 00:00:11 645] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 00:00:11 650] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 00:00:11 657] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 00:00:11 662] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 00:00:11 666] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/01 00:00:11 669] grm_lex    100  grm_type :  bnf  
+[2017/01/01 00:00:11 670] grm_lex    106  engine_type  :  local  
+[2017/01/01 00:00:11 671] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 00:00:11 672] grm_lex    106  sample_rate  :  16000  
+[2017/01/01 00:00:11 673] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 00:00:11 693] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/01 00:00:12 005] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:03:55 562 
+============================================================
+[2017/01/01 02:03:55 598] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:03:55 602] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:03:55 607] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:03:55 610] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:03:55 615] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/01 02:03:55 616] grm_lex    100  grm_type :  bnf  
+[2017/01/01 02:03:55 617] grm_lex    106  engine_type  :  local  
+[2017/01/01 02:03:55 619] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:03:55 620] grm_lex    106  sample_rate  :  16000  
+[2017/01/01 02:03:55 620] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:03:55 664] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/01 02:03:55 856] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:05:14 433 
+============================================================
+[2017/01/01 02:05:14 435] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:05:14 440] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:05:14 452] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:05:14 459] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:05:14 470] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:05:14 472] grm_lex    168  contact  16  
+[2017/01/01 02:05:14 478] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:05:14 479] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:05:14 481] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:05:14 484] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:05:14 486] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:05:14 489] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:05:14 500] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:05:14 738] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:06:37 680 
+============================================================
+[2017/01/01 02:06:37 681] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:06:37 696] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:06:37 703] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:06:37 709] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:06:37 716] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/01 02:06:37 717] grm_lex    100  grm_type :  bnf  
+[2017/01/01 02:06:37 718] grm_lex    106  engine_type  :  local  
+[2017/01/01 02:06:37 720] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:06:37 721] grm_lex    106  sample_rate  :  16000  
+[2017/01/01 02:06:37 722] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:06:37 768] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/01 02:06:37 906] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:06:50 352 
+============================================================
+[2017/01/01 02:06:50 353] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:06:50 359] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:06:50 373] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:06:50 379] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:06:50 390] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:06:50 392] grm_lex    168  contact  16  
+[2017/01/01 02:06:50 394] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:06:50 398] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:06:50 401] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:06:50 405] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:06:50 410] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:06:50 416] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:06:50 439] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:06:50 664] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:06:58 147 
+============================================================
+[2017/01/01 02:06:58 148] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:06:58 157] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:06:58 177] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:06:58 188] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:06:58 195] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:06:58 197] grm_lex    168  contact  16  
+[2017/01/01 02:06:58 199] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:06:58 201] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:06:58 204] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:06:58 208] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:06:58 219] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:06:58 230] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:06:58 241] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:06:58 481] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:07:05 639 
+============================================================
+[2017/01/01 02:07:05 640] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:07:05 654] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:05 672] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:05 679] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:07:05 687] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:07:05 691] grm_lex    168  contact  16  
+[2017/01/01 02:07:05 693] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:07:05 695] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:07:05 697] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:07:05 699] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:07:05 700] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:07:05 702] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:07:05 731] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:07:05 923] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:07:13 595 
+============================================================
+[2017/01/01 02:07:13 597] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:07:13 608] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:13 616] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:07:13 623] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:13 636] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:07:13 639] grm_lex    168  contact  16  
+[2017/01/01 02:07:13 641] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:07:13 647] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:07:13 650] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:07:13 653] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:07:13 655] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:07:13 658] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:07:13 701] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:07:13 910] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:07:21 022 
+============================================================
+[2017/01/01 02:07:21 022] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:07:21 028] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:21 031] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:07:21 036] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:21 043] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:07:21 046] grm_lex    168  contact  16  
+[2017/01/01 02:07:21 049] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:07:21 053] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:07:21 057] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:07:21 063] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:07:21 067] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:07:21 069] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:07:21 089] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:07:21 354] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:07:28 425 
+============================================================
+[2017/01/01 02:07:28 426] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:07:28 434] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:28 444] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:07:28 453] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:28 460] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:07:28 466] grm_lex    168  contact  16  
+[2017/01/01 02:07:28 472] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:07:28 498] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:07:28 507] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:07:28 521] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:07:28 527] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:07:28 528] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:07:28 551] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:07:28 757] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:07:35 848 
+============================================================
+[2017/01/01 02:07:35 848] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:07:35 855] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:35 862] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:07:35 882] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:35 887] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:07:35 892] grm_lex    168  contact  16  
+[2017/01/01 02:07:35 893] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:07:35 908] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:07:35 921] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:07:35 925] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:07:35 928] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:07:35 930] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:07:35 950] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:07:36 202] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:07:43 245 
+============================================================
+[2017/01/01 02:07:43 247] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:07:43 259] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:43 301] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:07:43 342] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:43 347] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:07:43 349] grm_lex    168  contact  16  
+[2017/01/01 02:07:43 351] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:07:43 357] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:07:43 358] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:07:43 361] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:07:43 363] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:07:43 367] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:07:43 405] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:07:43 578] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:07:51 376 
+============================================================
+[2017/01/01 02:07:51 377] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:07:51 383] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:51 390] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:07:51 398] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:51 401] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:07:51 404] grm_lex    168  contact  16  
+[2017/01/01 02:07:51 406] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:07:51 408] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:07:51 411] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:07:51 414] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:07:51 416] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:07:51 420] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:07:51 430] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:07:51 651] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:07:58 844 
+============================================================
+[2017/01/01 02:07:58 844] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:07:58 854] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:58 863] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:07:58 875] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:07:58 880] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:07:58 884] grm_lex    168  contact  16  
+[2017/01/01 02:07:58 887] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:07:58 890] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:07:58 893] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:07:58 895] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:07:58 901] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:07:58 905] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:07:58 982] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:07:59 144] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:08:06 277 
+============================================================
+[2017/01/01 02:08:06 279] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:08:06 303] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:08:06 315] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:08:06 321] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:08:06 328] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:08:06 331] grm_lex    168  contact  16  
+[2017/01/01 02:08:06 334] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:08:06 337] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:08:06 339] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:08:06 345] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:08:06 350] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:08:06 353] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:08:06 382] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:08:06 559] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:08:13 746 
+============================================================
+[2017/01/01 02:08:13 753] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:08:13 771] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:08:13 797] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:08:13 815] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:08:13 822] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:08:13 824] grm_lex    168  contact  16  
+[2017/01/01 02:08:13 827] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:08:13 830] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:08:13 833] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:08:13 837] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:08:13 842] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:08:13 845] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:08:13 915] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:08:14 123] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:08:21 953 
+============================================================
+[2017/01/01 02:08:21 954] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:08:21 961] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:08:21 968] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:08:21 975] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:08:21 984] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:08:21 986] grm_lex    168  contact  16  
+[2017/01/01 02:08:21 990] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:08:21 991] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:08:21 993] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:08:21 996] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:08:21 999] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:08:22 008] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:08:22 018] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:08:22 266] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:08:30 061 
+============================================================
+[2017/01/01 02:08:30 062] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:08:30 066] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:08:30 076] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:08:30 085] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:08:30 092] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:08:30 095] grm_lex    168  contact  16  
+[2017/01/01 02:08:30 098] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:08:30 102] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:08:30 104] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:08:30 105] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:08:30 106] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:08:30 107] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:08:30 119] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:08:30 442] grm_lex    71   0  call  
+============================================================
+Time  2025/04/07 09:06:01 882 
+============================================================
+[2025/04/07 09:06:01 908] grm_lex    264  SYS_MSG_LOAD  
+[2025/04/07 09:06:01 911] grm_lex    281  SYS_MSG_REGCB  
+[2025/04/07 09:06:01 918] grm_lex    267  SYS_MSG_UNLOAD  
+[2025/04/07 09:06:01 926] grm_lex    281  SYS_MSG_REGCB  
+[2025/04/07 09:06:01 935] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2025/04/07 09:06:01 936] grm_lex    100  grm_type :  bnf  
+[2025/04/07 09:06:01 939] grm_lex    106  engine_type  :  local  
+[2025/04/07 09:06:01 940] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2025/04/07 09:06:01 941] grm_lex    106  sample_rate  :  16000  
+[2025/04/07 09:06:01 943] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2025/04/07 09:06:01 971] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2025/04/07 09:06:02 106] grm_lex    71   11212  nil  
+============================================================
+Time  2017/01/01 00:00:03 756 
+============================================================
+[2017/01/01 00:00:03 758] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 00:00:03 786] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 00:00:03 792] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 00:00:03 797] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 00:00:03 802] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/01 00:00:03 803] grm_lex    100  grm_type :  bnf  
+[2017/01/01 00:00:03 804] grm_lex    106  engine_type  :  local  
+[2017/01/01 00:00:03 807] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 00:00:03 809] grm_lex    106  sample_rate  :  16000  
+[2017/01/01 00:00:03 810] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 00:00:03 859] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/01 00:00:04 086] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 00:07:27 064 
+============================================================
+[2017/01/01 00:07:27 066] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 00:07:27 077] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 00:07:27 083] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 00:07:27 089] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 00:07:27 097] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/01 00:07:27 099] grm_lex    100  grm_type :  bnf  
+[2017/01/01 00:07:27 101] grm_lex    106  engine_type  :  local  
+[2017/01/01 00:07:27 103] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 00:07:27 105] grm_lex    106  sample_rate  :  16000  
+[2017/01/01 00:07:27 107] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 00:07:27 151] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/01 00:07:27 389] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 01:08:13 202 
+============================================================
+[2017/01/01 01:08:13 203] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 01:08:13 225] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 01:08:13 233] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 01:08:13 239] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 01:08:13 248] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/01 01:08:13 250] grm_lex    100  grm_type :  bnf  
+[2017/01/01 01:08:13 251] grm_lex    106  engine_type  :  local  
+[2017/01/01 01:08:13 253] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 01:08:13 255] grm_lex    106  sample_rate  :  16000  
+[2017/01/01 01:08:13 257] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 01:08:13 289] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/01 01:08:13 502] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 01:25:06 653 
+============================================================
+[2017/01/01 01:25:06 654] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 01:25:06 665] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 01:25:06 671] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 01:25:06 676] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 01:25:06 682] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/01 01:25:06 683] grm_lex    100  grm_type :  bnf  
+[2017/01/01 01:25:06 685] grm_lex    106  engine_type  :  local  
+[2017/01/01 01:25:06 686] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 01:25:06 688] grm_lex    106  sample_rate  :  16000  
+[2017/01/01 01:25:06 690] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 01:25:06 727] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/01 01:25:06 941] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:14:45 512 
+============================================================
+[2017/01/01 02:14:45 525] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:14:45 533] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:14:45 541] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:14:45 551] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:14:45 555] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/01 02:14:45 558] grm_lex    100  grm_type :  bnf  
+[2017/01/01 02:14:45 560] grm_lex    106  engine_type  :  local  
+[2017/01/01 02:14:45 561] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:14:45 562] grm_lex    106  sample_rate  :  16000  
+[2017/01/01 02:14:45 564] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:14:45 610] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/01 02:14:45 811] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:16:14 652 
+============================================================
+[2017/01/01 02:16:14 659] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:16:14 664] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:16:14 676] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:16:14 692] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:16:14 699] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:16:14 703] grm_lex    168  contact  16  
+[2017/01/01 02:16:14 706] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:16:14 710] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:16:14 718] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:16:14 722] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:16:14 724] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:16:14 727] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:16:14 755] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:16:15 125] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:16:18 853 
+============================================================
+[2017/01/01 02:16:18 855] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:16:18 873] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:16:18 884] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:16:18 900] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:16:18 939] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:16:18 965] grm_lex    168  contact  16  
+[2017/01/01 02:16:18 990] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:16:18 996] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:16:18 997] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:16:19 037] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:16:19 049] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:16:19 065] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:16:19 086] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:16:19 577] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:16:56 489 
+============================================================
+[2017/01/01 02:16:56 490] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:16:56 513] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:16:56 521] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:16:56 529] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:16:56 533] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/01 02:16:56 535] grm_lex    100  grm_type :  bnf  
+[2017/01/01 02:16:56 536] grm_lex    106  engine_type  :  local  
+[2017/01/01 02:16:56 537] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:16:56 539] grm_lex    106  sample_rate  :  16000  
+[2017/01/01 02:16:56 540] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:16:56 590] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/01 02:16:56 793] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:17:07 602 
+============================================================
+[2017/01/01 02:17:07 605] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:17:07 617] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:07 633] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:17:07 642] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:07 650] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:17:07 657] grm_lex    168  contact  16  
+[2017/01/01 02:17:07 663] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:17:07 668] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:17:07 672] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:17:07 677] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:17:07 683] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:17:07 689] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:17:07 728] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:17:08 054] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:17:16 537 
+============================================================
+[2017/01/01 02:17:16 538] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:17:16 553] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:16 577] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:17:16 604] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:16 611] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:17:16 613] grm_lex    168  contact  16  
+[2017/01/01 02:17:16 616] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:17:16 620] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:17:16 629] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:17:16 632] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:17:16 645] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:17:16 648] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:17:16 695] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:17:16 921] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:17:24 840 
+============================================================
+[2017/01/01 02:17:24 842] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:17:24 858] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:24 867] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:17:24 874] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:24 889] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:17:24 893] grm_lex    168  contact  16  
+[2017/01/01 02:17:24 895] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:17:24 901] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:17:24 903] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:17:24 910] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:17:24 914] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:17:24 922] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:17:24 980] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:17:25 320] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:17:32 637 
+============================================================
+[2017/01/01 02:17:32 639] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:17:32 653] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:32 667] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:17:32 674] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:32 681] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:17:32 693] grm_lex    168  contact  16  
+[2017/01/01 02:17:32 700] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:17:32 713] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:17:32 718] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:17:32 723] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:17:32 726] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:17:32 728] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:17:32 759] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:17:32 967] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:17:40 908 
+============================================================
+[2017/01/01 02:17:40 911] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:17:40 933] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:40 942] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:17:40 948] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:40 954] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:17:40 959] grm_lex    168  contact  16  
+[2017/01/01 02:17:40 965] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:17:40 969] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:17:40 973] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:17:40 978] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:17:40 980] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:17:40 983] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:17:40 996] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:17:41 253] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:17:49 253 
+============================================================
+[2017/01/01 02:17:49 254] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:17:49 263] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:49 270] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:17:49 292] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:49 302] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:17:49 305] grm_lex    168  contact  16  
+[2017/01/01 02:17:49 307] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:17:49 311] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:17:49 316] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:17:49 320] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:17:49 323] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:17:49 325] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:17:49 360] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:17:49 622] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:17:57 101 
+============================================================
+[2017/01/01 02:17:57 103] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:17:57 114] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:57 131] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:17:57 139] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:17:57 146] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:17:57 150] grm_lex    168  contact  16  
+[2017/01/01 02:17:57 153] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:17:57 159] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:17:57 163] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:17:57 166] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:17:57 169] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:17:57 172] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:17:57 202] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:17:57 453] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:18:05 554 
+============================================================
+[2017/01/01 02:18:05 556] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:18:05 566] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:18:05 575] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:18:05 582] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:18:05 589] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:18:05 594] grm_lex    168  contact  16  
+[2017/01/01 02:18:05 608] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:18:05 610] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:18:05 613] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:18:05 614] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:18:05 619] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:18:05 622] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:18:05 636] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:18:05 945] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:19:46 496 
+============================================================
+[2017/01/01 02:19:46 498] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:19:46 508] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:19:46 514] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:19:46 520] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:19:46 529] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/01 02:19:46 531] grm_lex    100  grm_type :  bnf  
+[2017/01/01 02:19:46 532] grm_lex    106  engine_type  :  local  
+[2017/01/01 02:19:46 533] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:19:46 534] grm_lex    106  sample_rate  :  16000  
+[2017/01/01 02:19:46 535] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:19:46 583] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/01 02:19:46 790] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:19:57 598 
+============================================================
+[2017/01/01 02:19:57 599] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:19:57 613] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:19:57 666] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:19:57 677] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:19:57 681] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:19:57 686] grm_lex    168  contact  16  
+[2017/01/01 02:19:57 689] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:19:57 693] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:19:57 697] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:19:57 700] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:19:57 708] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:19:57 717] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:19:57 789] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:19:58 174] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:20:06 506 
+============================================================
+[2017/01/01 02:20:06 507] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:20:06 528] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:20:06 535] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:20:06 544] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:20:06 560] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:20:06 563] grm_lex    168  contact  16  
+[2017/01/01 02:20:06 567] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:20:06 570] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:20:06 573] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:20:06 578] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:20:06 582] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:20:06 589] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:20:06 631] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:20:07 017] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:20:14 323 
+============================================================
+[2017/01/01 02:20:14 324] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:20:14 333] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:20:14 344] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:20:14 359] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:20:14 373] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:20:14 385] grm_lex    168  contact  16  
+[2017/01/01 02:20:14 388] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:20:14 391] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:20:14 394] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:20:14 399] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:20:14 403] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:20:14 407] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:20:14 429] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:20:14 710] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:20:22 910 
+============================================================
+[2017/01/01 02:20:22 911] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:20:22 918] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:20:22 926] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:20:22 934] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:20:22 941] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:20:22 943] grm_lex    168  contact  16  
+[2017/01/01 02:20:22 945] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:20:22 948] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:20:22 951] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:20:22 953] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:20:22 955] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:20:22 958] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:20:22 998] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:20:23 306] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:20:31 227 
+============================================================
+[2017/01/01 02:20:31 228] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:20:31 239] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:20:31 248] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:20:31 260] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:20:31 270] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:20:31 275] grm_lex    168  contact  16  
+[2017/01/01 02:20:31 278] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:20:31 280] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:20:31 295] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:20:31 309] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:20:31 315] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:20:31 322] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:20:31 335] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:20:31 612] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:24:21 566 
+============================================================
+[2017/01/01 02:24:21 580] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:24:21 585] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:24:21 598] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:24:21 609] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:24:21 613] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/01 02:24:21 615] grm_lex    100  grm_type :  bnf  
+[2017/01/01 02:24:21 616] grm_lex    106  engine_type  :  local  
+[2017/01/01 02:24:21 618] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:24:21 620] grm_lex    106  sample_rate  :  16000  
+[2017/01/01 02:24:21 621] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:24:21 660] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/01 02:24:21 882] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:25:21 750 
+============================================================
+[2017/01/01 02:25:21 751] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:25:21 758] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:25:21 765] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:25:21 773] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:25:21 784] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:25:21 788] grm_lex    168  contact  16  
+[2017/01/01 02:25:21 791] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:25:21 798] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:25:21 802] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:25:21 804] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:25:21 807] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:25:21 811] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:25:21 825] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:25:22 187] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:25:30 020 
+============================================================
+[2017/01/01 02:25:30 021] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:25:30 028] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:25:30 037] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:25:30 045] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:25:30 051] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:25:30 052] grm_lex    168  contact  16  
+[2017/01/01 02:25:30 053] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:25:30 055] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:25:30 056] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:25:30 057] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:25:30 058] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:25:30 062] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:25:30 184] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:25:30 370] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:25:38 343 
+============================================================
+[2017/01/01 02:25:38 345] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:25:38 356] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:25:38 365] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:25:38 372] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:25:38 382] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:25:38 387] grm_lex    168  contact  16  
+[2017/01/01 02:25:38 394] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:25:38 400] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:25:38 403] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:25:38 408] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:25:38 413] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:25:38 415] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:25:38 449] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:25:38 720] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:25:46 661 
+============================================================
+[2017/01/01 02:25:46 662] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:25:46 673] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:25:46 684] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:25:46 694] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:25:46 716] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:25:46 722] grm_lex    168  contact  16  
+[2017/01/01 02:25:46 739] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:25:46 750] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:25:46 753] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:25:46 768] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:25:46 772] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:25:46 779] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:25:46 845] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:25:47 098] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:26:43 595 
+============================================================
+[2017/01/01 02:26:43 597] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:26:43 607] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:26:43 616] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:26:43 627] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:26:43 635] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/01 02:26:43 637] grm_lex    100  grm_type :  bnf  
+[2017/01/01 02:26:43 639] grm_lex    106  engine_type  :  local  
+[2017/01/01 02:26:43 642] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:26:43 644] grm_lex    106  sample_rate  :  16000  
+[2017/01/01 02:26:43 646] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:26:43 675] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/01 02:26:43 937] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:27:15 958 
+============================================================
+[2017/01/01 02:27:15 959] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:27:15 969] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:27:15 989] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:27:16 021] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:27:16 037] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:27:16 041] grm_lex    168  contact  16  
+[2017/01/01 02:27:16 045] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:27:16 048] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:27:16 066] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:27:16 070] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:27:16 074] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:27:16 077] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:27:16 119] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:27:16 437] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:27:24 965 
+============================================================
+[2017/01/01 02:27:24 967] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:27:24 977] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:27:25 024] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:27:25 057] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:27:25 073] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:27:25 080] grm_lex    168  contact  16  
+[2017/01/01 02:27:25 088] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:27:25 093] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:27:25 099] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:27:25 104] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:27:25 107] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:27:25 112] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:27:25 178] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:27:25 526] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:27:33 301 
+============================================================
+[2017/01/01 02:27:33 302] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:27:33 308] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:27:33 324] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:27:33 339] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:27:33 351] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:27:33 354] grm_lex    168  contact  16  
+[2017/01/01 02:27:33 356] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:27:33 358] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:27:33 361] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:27:33 363] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:27:33 365] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:27:33 368] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:27:33 444] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:27:33 724] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:27:41 633 
+============================================================
+[2017/01/01 02:27:41 634] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:27:41 645] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:27:41 653] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:27:41 667] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:27:41 677] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:27:41 682] grm_lex    168  contact  16  
+[2017/01/01 02:27:41 687] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:27:41 689] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:27:41 694] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:27:41 697] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:27:41 699] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:27:41 704] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:27:41 759] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:27:41 975] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:27:49 958 
+============================================================
+[2017/01/01 02:27:49 959] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:27:49 975] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:27:49 981] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:27:49 997] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:27:50 018] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:27:50 021] grm_lex    168  contact  16  
+[2017/01/01 02:27:50 026] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:27:50 031] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:27:50 038] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:27:50 040] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:27:50 041] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:27:50 042] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:27:50 072] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:27:50 359] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:27:58 343 
+============================================================
+[2017/01/01 02:27:58 344] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:27:58 364] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:27:58 380] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:27:58 420] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:27:58 428] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:27:58 431] grm_lex    168  contact  16  
+[2017/01/01 02:27:58 435] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:27:58 438] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:27:58 443] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:27:58 448] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:27:58 452] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:27:58 458] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:27:58 518] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:27:58 839] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:28:06 686 
+============================================================
+[2017/01/01 02:28:06 687] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:28:06 697] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:06 708] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:28:06 715] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:06 727] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:28:06 730] grm_lex    168  contact  16  
+[2017/01/01 02:28:06 732] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:28:06 733] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:28:06 739] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:28:06 743] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:28:06 748] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:28:06 755] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:28:06 825] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:28:07 164] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:28:14 958 
+============================================================
+[2017/01/01 02:28:14 959] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:28:14 970] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:14 977] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:28:14 985] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:14 992] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:28:14 996] grm_lex    168  contact  16  
+[2017/01/01 02:28:15 002] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:28:15 007] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:28:15 012] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:28:15 019] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:28:15 024] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:28:15 027] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:28:15 058] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:28:15 300] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:28:23 236 
+============================================================
+[2017/01/01 02:28:23 237] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:28:23 260] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:23 272] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:28:23 282] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:23 295] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:28:23 298] grm_lex    168  contact  16  
+[2017/01/01 02:28:23 317] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:28:23 320] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:28:23 323] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:28:23 326] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:28:23 328] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:28:23 330] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:28:23 362] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:28:23 655] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:28:31 588 
+============================================================
+[2017/01/01 02:28:31 591] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:28:31 601] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:31 619] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:28:31 638] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:31 643] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:28:31 646] grm_lex    168  contact  16  
+[2017/01/01 02:28:31 649] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:28:31 649] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:28:31 653] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:28:31 658] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:28:31 661] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:28:31 663] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:28:31 691] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:28:31 979] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:28:39 931 
+============================================================
+[2017/01/01 02:28:39 932] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:28:39 940] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:39 959] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:28:39 969] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:39 990] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:28:39 996] grm_lex    168  contact  16  
+[2017/01/01 02:28:40 000] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:28:40 004] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:28:40 012] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:28:40 013] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:28:40 013] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:28:40 016] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:28:40 052] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:28:40 333] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:28:47 665 
+============================================================
+[2017/01/01 02:28:47 666] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:28:47 673] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:47 683] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:28:47 704] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:47 748] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:28:47 754] grm_lex    168  contact  16  
+[2017/01/01 02:28:47 756] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:28:47 758] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:28:47 759] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:28:47 760] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:28:47 762] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:28:47 763] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:28:47 784] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:28:48 098] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:28:55 445 
+============================================================
+[2017/01/01 02:28:55 447] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:28:55 467] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:55 473] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:28:55 478] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:28:55 484] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:28:55 492] grm_lex    168  contact  16  
+[2017/01/01 02:28:55 496] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:28:55 501] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:28:55 506] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:28:55 511] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:28:55 523] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:28:55 526] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:28:55 544] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:28:55 891] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:29:03 885 
+============================================================
+[2017/01/01 02:29:03 886] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:29:03 947] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:03 957] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:29:03 966] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:03 989] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:29:03 993] grm_lex    168  contact  16  
+[2017/01/01 02:29:03 996] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:29:04 001] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:29:04 002] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:29:04 006] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:29:04 009] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:29:04 011] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:29:04 027] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:29:04 367] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:29:11 663 
+============================================================
+[2017/01/01 02:29:11 667] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:29:11 678] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:11 681] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:29:11 691] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:11 712] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:29:11 714] grm_lex    168  contact  16  
+[2017/01/01 02:29:11 717] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:29:11 727] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:29:11 729] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:29:11 750] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:29:11 755] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:29:11 759] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:29:11 792] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:29:12 082] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:29:19 353 
+============================================================
+[2017/01/01 02:29:19 354] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:29:19 372] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:19 381] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:29:19 390] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:19 403] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:29:19 408] grm_lex    168  contact  16  
+[2017/01/01 02:29:19 411] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:29:19 414] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:29:19 417] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:29:19 423] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:29:19 425] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:29:19 428] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:29:19 453] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:29:19 729] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:29:27 096 
+============================================================
+[2017/01/01 02:29:27 097] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:29:27 101] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:27 108] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:29:27 111] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:27 116] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:29:27 124] grm_lex    168  contact  16  
+[2017/01/01 02:29:27 130] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:29:27 133] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:29:27 137] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:29:27 144] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:29:27 148] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:29:27 159] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:29:27 219] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:29:27 404] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:29:34 759 
+============================================================
+[2017/01/01 02:29:34 760] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:29:34 788] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:34 806] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:29:34 816] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:34 820] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:29:34 822] grm_lex    168  contact  16  
+[2017/01/01 02:29:34 823] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:29:34 824] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:29:34 825] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:29:34 826] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:29:34 828] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:29:34 829] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:29:34 853] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:29:35 110] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:29:42 421 
+============================================================
+[2017/01/01 02:29:42 424] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:29:42 443] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:42 452] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:29:42 468] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:42 483] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:29:42 486] grm_lex    168  contact  16  
+[2017/01/01 02:29:42 508] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:29:42 511] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:29:42 514] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:29:42 517] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:29:42 519] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:29:42 521] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:29:42 562] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:29:42 852] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:29:50 883 
+============================================================
+[2017/01/01 02:29:50 883] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:29:50 891] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:50 897] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:29:50 903] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:50 908] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:29:50 911] grm_lex    168  contact  16  
+[2017/01/01 02:29:50 913] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:29:50 917] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:29:50 919] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:29:50 923] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:29:50 925] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:29:50 927] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:29:50 979] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:29:51 165] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:29:59 324 
+============================================================
+[2017/01/01 02:29:59 325] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:29:59 329] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:59 339] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:29:59 344] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:29:59 351] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:29:59 352] grm_lex    168  contact  16  
+[2017/01/01 02:29:59 353] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:29:59 355] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:29:59 357] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:29:59 358] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:29:59 360] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:29:59 361] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:29:59 398] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:29:59 721] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:30:07 795 
+============================================================
+[2017/01/01 02:30:07 796] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:30:07 816] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:30:07 823] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:30:07 837] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:30:07 855] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:30:07 865] grm_lex    168  contact  16  
+[2017/01/01 02:30:07 871] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:30:07 874] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:30:07 876] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:30:07 880] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:30:07 883] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:30:07 889] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:30:07 912] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:30:08 159] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:30:16 235 
+============================================================
+[2017/01/01 02:30:16 236] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:30:16 243] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:30:16 256] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:30:16 261] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:30:16 266] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:30:16 269] grm_lex    168  contact  16  
+[2017/01/01 02:30:16 273] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:30:16 275] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:30:16 278] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:30:16 280] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:30:16 282] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:30:16 284] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:30:16 308] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:30:16 619] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:30:23 936 
+============================================================
+[2017/01/01 02:30:23 937] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:30:23 958] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:30:23 966] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:30:23 982] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:30:23 996] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:30:23 998] grm_lex    168  contact  16  
+[2017/01/01 02:30:24 003] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:30:24 011] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:30:24 013] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:30:24 016] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:30:24 018] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:30:24 020] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:30:24 038] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:30:24 313] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:30:32 226 
+============================================================
+[2017/01/01 02:30:32 227] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:30:32 231] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:30:32 261] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:30:32 275] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:30:32 285] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:30:32 289] grm_lex    168  contact  16  
+[2017/01/01 02:30:32 294] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:30:32 306] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:30:32 310] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:30:32 312] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:30:32 314] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:30:32 324] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:30:32 339] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:30:32 669] grm_lex    71   0  call  
+============================================================
+Time  2017/01/01 02:30:40 503 
+============================================================
+[2017/01/01 02:30:40 504] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 02:30:40 531] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:30:40 540] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 02:30:40 548] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 02:30:40 580] grm_lex    257  ISR_MSG_UPDATELEXICON  
+[2017/01/01 02:30:40 582] grm_lex    168  contact  16  
+[2017/01/01 02:30:40 588] grm_lex    174  engine_type  :  local  
+[2017/01/01 02:30:40 597] grm_lex    174  text_encoding  :  UTF-8  
+[2017/01/01 02:30:40 600] grm_lex    174  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 02:30:40 608] grm_lex    174  sample_rate  :  16000  
+[2017/01/01 02:30:40 615] grm_lex    174  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 02:30:40 617] grm_lex    174  grammar_list  :  call  
+[2017/01/01 02:30:40 653] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
+[2017/01/01 02:30:40 967] grm_lex    71   0  call  

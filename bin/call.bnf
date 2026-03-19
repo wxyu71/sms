@@ -1,0 +1,8 @@
+﻿#BNF+IAT 1.0 UTF-8;
+ !grammar call;
+ !slot <want>;
+ !slot <dialpre>;
+ !slot <dialsuf>;
+ !slot <contact>;
+ !start <callstart>;
+ <callstart>:打开电子相册!id(1)|上一个!id(2)|下一个!id(3)|退出!id(4)|开灯!id(5);
