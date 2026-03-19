@@ -66,6 +66,7 @@ static int g_music_bg_h = 0;
 
 static pid_t g_player_pid = -1;
 static int g_paused = 0;
+static char g_mp3_found_dir[PATH_MAX] = "";
 
 static int scale_x(int x) { return x * g_lcd_width / MUSIC_DESIGN_W; }
 static int scale_y(int y) { return y * g_lcd_height / MUSIC_DESIGN_H; }
@@ -137,10 +138,9 @@ static int get_executable_dir(char *out_dir, size_t out_sz)
     return 0;
 }
 
-static int collect_mp3_from_exe_dir(Mp3List *list)
+static int collect_mp3_from_dir(Mp3List *list, const char *dir_path)
 {
-    char dir_path[PATH_MAX];
-    if (get_executable_dir(dir_path, sizeof(dir_path)) != 0)
+    if (dir_path == NULL || dir_path[0] == '\0')
         return -1;
 
     DIR *dir = opendir(dir_path);
@@ -170,6 +170,34 @@ static int collect_mp3_from_exe_dir(Mp3List *list)
         qsort(list->items, (size_t)list->count, sizeof(char *), cmp_str_ptr);
 
     return (list->count > 0) ? 0 : -1;
+}
+
+static int collect_mp3(Mp3List *list)
+{
+    char exe_dir[PATH_MAX] = "";
+    char cwd_dir[PATH_MAX] = "";
+
+    if (get_executable_dir(exe_dir, sizeof(exe_dir)) == 0) {
+        if (collect_mp3_from_dir(list, exe_dir) == 0) {
+            snprintf(g_mp3_found_dir, sizeof(g_mp3_found_dir), "%s", exe_dir);
+            return 0;
+        }
+    }
+
+    if (getcwd(cwd_dir, sizeof(cwd_dir)) != NULL) {
+        if (collect_mp3_from_dir(list, cwd_dir) == 0) {
+            snprintf(g_mp3_found_dir, sizeof(g_mp3_found_dir), "%s", cwd_dir);
+            return 0;
+        }
+    }
+
+    if (collect_mp3_from_dir(list, "/") == 0) {
+        snprintf(g_mp3_found_dir, sizeof(g_mp3_found_dir), "%s", "/");
+        return 0;
+    }
+
+    g_mp3_found_dir[0] = '\0';
+    return -1;
 }
 
 static const char *basename_from_path(const char *path)
@@ -399,7 +427,7 @@ static void draw_status(const Mp3List *list, int cur_idx)
 
     if (list == NULL || list->count <= 0) {
         lcd_draw_string(x + 8, y + 12, "NO MP3 NEXT TO EXECUTABLE", COLOR_BTN_EXIT, bg);
-        lcd_draw_string(x + 8, y + 34, "PUT *.MP3 BESIDE build/main", COLOR_BLACK, bg);
+        lcd_draw_string(x + 8, y + 34, "SCAN: EXE DIR -> CWD -> /", COLOR_BLACK, bg);
         return;
     }
 
@@ -425,8 +453,13 @@ void module_music(void)
     build_hotspots();
     draw_frame();
 
-    if (collect_mp3_from_exe_dir(&list) == 0)
+    if (collect_mp3(&list) == 0)
         player_start(list.items[cur]);
+
+    if (list.count > 0)
+        printf("[music] mp3 found in: %s (count=%d)\n", g_mp3_found_dir, list.count);
+    else
+        printf("[music] no mp3 found (tried exe dir, cwd, /)\n");
 
     draw_status(&list, cur);
 
