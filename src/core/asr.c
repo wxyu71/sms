@@ -25,11 +25,11 @@
 #define MAX_PARAMS_LEN      (1024)
 
 /* 离线语法识别资源路径（工程内资源位于 bin/ 下） */
-static const char *ASR_RES_PATH   = "fo|bin/msc/res/asr/common.jet";
+static char g_asr_res_path[PATH_MAX]   = "fo|bin/msc/res/asr/common.jet";
 /* 构建离线识别语法网络生成数据保存路径（工程内示例目录） */
-static const char *GRM_BUILD_PATH = "bin/msc/res/asr/GrmBuilld";
+static char g_grm_build_path[PATH_MAX] = "bin/msc/res/asr/GrmBuilld";
 /* 构建离线识别语法网络所用的语法文件（工程内示例文件） */
-static const char *GRM_FILE       = "bin/call.bnf";
+static char g_grm_file[PATH_MAX]       = "bin/call.bnf";
 /* 更新离线识别语法的 contact 槽（示例语法 call.bnf） */
 static const char *LEX_NAME       = "contact";
 
@@ -47,6 +47,30 @@ static int parse_voice_id(const char *rec_rslt);
 static int build_grammar(UserData *udata); //构建离线识别语法网络
 static int update_lexicon(UserData *udata); //更新离线识别语法词典
 static int run_asr(UserData *udata, const char *pcm_path); //进行离线语法识别
+
+static void asr_prepare_paths(void)
+{
+	/* 尽量解析为绝对路径，避免工作目录变化导致 10102 FILE_NOT_FOUND */
+	char resolved[PATH_MAX];
+
+	if (realpath("bin/msc/res/asr/common.jet", resolved) != NULL) {
+		snprintf(g_asr_res_path, sizeof(g_asr_res_path), "fo|%s", resolved);
+	} else {
+		/* 保留默认相对路径 */
+	}
+
+	if (realpath("bin/msc/res/asr/GrmBuilld", resolved) != NULL) {
+		snprintf(g_grm_build_path, sizeof(g_grm_build_path), "%s", resolved);
+	}
+
+	if (realpath("bin/call.bnf", resolved) != NULL) {
+		snprintf(g_grm_file, sizeof(g_grm_file), "%s", resolved);
+	}
+
+	printf("ASR path: asr_res_path=%s\n", g_asr_res_path);
+	printf("ASR path: grm_build_path=%s\n", g_grm_build_path);
+	printf("ASR path: grm_file=%s\n", g_grm_file);
+}
 #endif
 
 /* 旧示例的交互式文件选择已移除：模块化后由调用者传入 pcm_path。 */
@@ -80,9 +104,9 @@ static int build_grammar(UserData *udata)
 	char grm_build_params[MAX_PARAMS_LEN]    = {NULL};
 	int ret                                  = 0;
 
-	grm_file = fopen(GRM_FILE, "rb");	
+	grm_file = fopen(g_grm_file, "rb");	
 	if(NULL == grm_file) {
-		printf("打开\"%s\"文件失败！[%s]\n", GRM_FILE, strerror(errno));
+		printf("打开\"%s\"文件失败！[%s]\n", g_grm_file, strerror(errno));
 		return -1; 
 	}
 
@@ -107,9 +131,9 @@ static int build_grammar(UserData *udata)
 		"engine_type = local, \
 		asr_res_path = %s, sample_rate = %d, \
 		grm_build_path = %s, ",
-		ASR_RES_PATH,
+		g_asr_res_path,
 		SAMPLE_RATE_16K,
-		GRM_BUILD_PATH
+		g_grm_build_path
 		);
 	ret = QISRBuildGrammar("bnf", grm_content, grm_cnt_len, grm_build_params, build_grm_cb, udata);
 
@@ -146,9 +170,9 @@ static int update_lexicon(UserData *udata)
 		"engine_type = local, text_encoding = UTF-8, \
 		asr_res_path = %s, sample_rate = %d, \
 		grm_build_path = %s, grammar_list = %s, ",
-		ASR_RES_PATH,
+		g_asr_res_path,
 		SAMPLE_RATE_16K,
-		GRM_BUILD_PATH,
+		g_grm_build_path,
 		udata->grammar_id);
 	return QISRUpdateLexicon(LEX_NAME, lex_content, lex_cnt_len, update_lex_params, update_lex_cb, udata);
 }
@@ -351,6 +375,7 @@ int voice_init(void)
 #ifndef ASR_APPID
 #define ASR_APPID "5f62c65a"
 #endif
+	asr_prepare_paths();
 	char login_config[64];
 	snprintf(login_config, sizeof(login_config), "appid = %s", ASR_APPID);
 

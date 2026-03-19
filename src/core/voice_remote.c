@@ -14,6 +14,9 @@
 static pthread_t g_voice_tid;
 static int g_voice_started = 0;
 
+static char g_server_ip[64] = {0};
+static int g_server_port = 9000;
+
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 static int g_pending_id = 0;
 static int g_has_pending = 0;
@@ -62,7 +65,7 @@ static int connect_server(const char *ip, int port)
     memset(&server_addr, 0, sizeof(server_addr));
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons((uint16_t)port);
-    if (inet_aton(ip, &server_addr.sin_addr) == 0) {
+    if (inet_pton(AF_INET, ip, &server_addr.sin_addr) != 1) {
         close(sockfd);
         return -1;
     }
@@ -126,17 +129,9 @@ static void publish_id(int id)
 
 static void *voice_thread(void *arg)
 {
-    char ip_buf[64];
-    memset(ip_buf, 0, sizeof(ip_buf));
-    if (arg != NULL) {
-        snprintf(ip_buf, sizeof(ip_buf), "%s", (const char *)arg);
-        free(arg);
-    }
-
-    const char *ip = ip_buf;
-
-    const char *port_str = getenv("VOICE_SERVER_PORT");
-    int port = port_str ? atoi(port_str) : 9000;
+    (void)arg;
+    const char *ip = g_server_ip;
+    int port = g_server_port;
 
     /* 录音输出文件放当前目录，避免 /tmp 挂载差异 */
     const char *pcm_path = "1.pcm";
@@ -181,16 +176,18 @@ int voice_remote_start_from_env(void)
     if (ip == NULL || ip[0] == '\0')
         return -1;
 
-    /* 复制一份 ip，避免环境变量生命周期问题 */
-    char *ip_copy = strdup(ip);
-    if (ip_copy == NULL)
-        return -1;
+    const char *port_str = getenv("VOICE_SERVER_PORT");
+    int port = port_str ? atoi(port_str) : 9000;
+    if (port <= 0 || port > 65535)
+        port = 9000;
 
-    int ret = pthread_create(&g_voice_tid, NULL, voice_thread, ip_copy);
-    if (ret != 0) {
-        free(ip_copy);
+    memset(g_server_ip, 0, sizeof(g_server_ip));
+    snprintf(g_server_ip, sizeof(g_server_ip), "%s", ip);
+    g_server_port = port;
+
+    int ret = pthread_create(&g_voice_tid, NULL, voice_thread, NULL);
+    if (ret != 0)
         return -1;
-    }
 
     pthread_detach(g_voice_tid);
     g_voice_started = 1;

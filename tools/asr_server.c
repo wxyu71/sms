@@ -1,3 +1,5 @@
+#define _XOPEN_SOURCE 700
+
 #include <errno.h>
 #include <netinet/in.h>
 #include <stdio.h>
