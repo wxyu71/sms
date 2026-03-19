@@ -136,16 +136,24 @@ static void *voice_thread(void *arg)
     /* 录音输出文件放当前目录，避免 /tmp 挂载差异 */
     const char *pcm_path = "1.pcm";
 
+    printf("[voice_remote] thread started: %s:%d\n", ip, port);
+
     while (1) {
         int sockfd = connect_server(ip, port);
         if (sockfd < 0) {
+            perror("[voice_remote] connect");
             sleep(1);
             continue;
         }
 
+        printf("[voice_remote] connected\n");
+
         while (1) {
             /* 1) 录音 4s */
-            system("arecord -d4 -c1 -r16000 -traw -fS16_LE 1.pcm");
+            int rc = system("arecord -d4 -c1 -r16000 -traw -fS16_LE 1.pcm");
+            if (rc != 0) {
+                fprintf(stderr, "[voice_remote] arecord failed rc=%d\n", rc);
+            }
 
             /* 2) 发送 PCM */
             if (send_pcm_file(sockfd, pcm_path) != 0) {
@@ -156,10 +164,12 @@ static void *voice_thread(void *arg)
             /* 3) 接收识别 id */
             int id = 0;
             if (read_full(sockfd, &id, 4) != 0) {
+                perror("[voice_remote] read id");
                 close(sockfd);
                 break;
             }
 
+            printf("[voice_remote] got id=%d\n", id);
             publish_id(id);
         }
     }
@@ -173,13 +183,17 @@ int voice_remote_start_from_env(void)
         return 0;
 
     const char *ip = getenv("VOICE_SERVER_IP");
-    if (ip == NULL || ip[0] == '\0')
+    if (ip == NULL || ip[0] == '\0') {
+        fprintf(stderr, "[voice_remote] VOICE_SERVER_IP not set; voice disabled\n");
         return -1;
+    }
 
     const char *port_str = getenv("VOICE_SERVER_PORT");
     int port = port_str ? atoi(port_str) : 9000;
     if (port <= 0 || port > 65535)
         port = 9000;
+
+    printf("[voice_remote] config from env: %s:%d\n", ip, port);
 
     memset(g_server_ip, 0, sizeof(g_server_ip));
     snprintf(g_server_ip, sizeof(g_server_ip), "%s", ip);

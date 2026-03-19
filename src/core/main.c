@@ -254,6 +254,7 @@ int main(void)
         /* 先尝试消费一条语音命令（非阻塞） */
         int voice_id = -1;
         if (voice_remote_poll_id(&voice_id) == 1) {
+            printf("[main] voice id=%d\n", voice_id);
             if (voice_id == 1) {
                 /* 打开电子相册 */
                 module_photo();
