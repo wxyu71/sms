@@ -3,9 +3,11 @@
 # 用法：
 #   make          构建可执行文件 build/main
 #   make clean    清除 build 目录
+#   make rebuild  先清理再全量重编译（切换编译器后推荐）
+#   make fix-ts   修正 build 下文件时间戳（VM/共享目录时间漂移时使用）
 #
 # 交叉编译（ARM 嵌入式）：
-#   make CC=arm-linux-gnueabihf-gcc
+#   make CC=arm-linux-gcc
 
 CC      = gcc
 CFLAGS  = -Wall -Wextra -std=c99 -g -Iinclude
@@ -48,7 +50,7 @@ SRCS    = src/core/main.c \
 OBJS    = $(patsubst src/%.c,build/%.o,$(SRCS))
 DEPS    = $(OBJS:.o=.d)
 
-.PHONY: all clean client server asr_server
+.PHONY: all clean rebuild fix-ts client server asr_server
 
 all: $(TARGET)
 
@@ -88,3 +90,8 @@ build/%.o: src/%.c
 
 clean:
 	rm -rf build
+
+rebuild: clean all
+
+fix-ts:
+	@test -d build && find build -type f -exec touch -c {} + || true

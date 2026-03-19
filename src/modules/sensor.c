@@ -73,14 +73,16 @@
 static void tty_init(int fd)
 {
     struct termios t;
-    bzero(&t, sizeof(t));
-    cfmakeraw(&t);
+    memset(&t, 0, sizeof(t));
+    /* cfmakeraw 在部分交叉工具链下需要额外 feature 宏，手动配置等效 raw 模式。 */
+    t.c_iflag &= ~(IGNBRK | BRKINT | PARMRK | ISTRIP | INLCR | IGNCR | ICRNL | IXON);
+    t.c_oflag &= ~OPOST;
+    t.c_lflag &= ~(ECHO | ECHONL | ICANON | ISIG | IEXTEN);
+    t.c_cflag &= ~(CSIZE | PARENB);
+    t.c_cflag |= CS8;
     cfsetispeed(&t, B9600);
     cfsetospeed(&t, B9600);
     t.c_cflag |= CLOCAL | CREAD;
-    t.c_cflag &= ~CSIZE;
-    t.c_cflag |= CS8;
-    t.c_cflag &= ~PARENB;
     t.c_cflag &= ~CSTOPB;
     t.c_cc[VTIME] = 10;
     t.c_cc[VMIN]  = 1;
