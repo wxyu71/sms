@@ -104,6 +104,18 @@ static void build_main_hotspots(void)
 
 /**
  * load_bmp_scaled_rgb565 - 解码 24/32 位 BMP 并缩放到目标分辨率（RGB565）
+ *
+ * 实现要点：
+ * 1) 使用 mmap 直接映射 BMP 文件，减少 read 拷贝开销
+ * 2) 兼容 24-bit / 32-bit BMP，支持 bottom-up 与 top-down 存储
+ * 3) 采用最近邻缩放，把任意分辨率背景图映射到当前 LCD 尺寸
+ *
+ * 参数：
+ * @path  : BMP 文件路径
+ * @dst   : 目标 RGB565 缓冲区（长度 >= dst_w * dst_h）
+ * @dst_w : 目标宽
+ * @dst_h : 目标高
+ *
  * 返回 0 成功，-1 失败。
  */
 static int load_bmp_scaled_rgb565(const char *path, unsigned short *dst, int dst_w, int dst_h)
@@ -165,9 +177,11 @@ static int load_bmp_scaled_rgb565(const char *path, unsigned short *dst, int dst
 
 static int ensure_main_background_loaded(void)
 {
+    /* 缓存命中：尺寸一致时直接复用，避免重复解码 */
     if (g_main_bg_rgb565 != NULL && g_main_bg_w == g_lcd_width && g_main_bg_h == g_lcd_height)
         return 0;
 
+    /* 尺寸变化或首次进入：重建缓存 */
     free(g_main_bg_rgb565);
     g_main_bg_rgb565 = (unsigned short *)malloc((size_t)g_lcd_width * g_lcd_height * sizeof(unsigned short));
     if (g_main_bg_rgb565 == NULL)
@@ -176,12 +190,14 @@ static int ensure_main_background_loaded(void)
     g_main_bg_w = g_lcd_width;
     g_main_bg_h = g_lcd_height;
 
+    /* 兼容不同启动目录：按候选路径依次尝试 */
     int path_count = (int)(sizeof(MAIN_BMP_CANDIDATES) / sizeof(MAIN_BMP_CANDIDATES[0]));
     for (int i = 0; i < path_count; i++) {
         if (load_bmp_scaled_rgb565(MAIN_BMP_CANDIDATES[i], g_main_bg_rgb565, g_main_bg_w, g_main_bg_h) == 0)
             return 0;
     }
 
+    /* 全部失败则释放缓存并通知上层降级绘制 */
     free(g_main_bg_rgb565);
     g_main_bg_rgb565 = NULL;
     return -1;
@@ -220,7 +236,13 @@ int main(void)
     draw_main_screen();
     printf("Main interface ready. Waiting for touch input...\n");
 
-    /* 主事件循环：等待点击 → 命中检测 → 调用模块 → 返回重绘 */
+    /*
+     * 主事件循环：
+     * 1) 阻塞等待一次有效点击
+     * 2) 按透明热区做命中检测
+     * 3) 命中则进入对应子模块
+     * 4) 子模块返回后重绘主界面
+     */
     while (1) {
         int tx, ty;
 
@@ -237,7 +259,11 @@ int main(void)
 
         if (hit != NULL) {
             printf("Module: %s\n", hit->line1);
-            /* 进入子模块（模块内部维护自己的事件循环，返回后回到主界面） */
+            /*
+             * 进入子模块：
+             * 子模块内部维护自己的事件循环（直到点击退出），
+             * 返回后继续回到主循环。
+             */
             hit->on_click();
             /* 子模块返回后重绘主界面 */
             draw_main_screen();

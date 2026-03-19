@@ -9,6 +9,11 @@
  *   触摸屏上报的是原始 ADC 值（典型范围 0~4095），不是屏幕像素。
  *   打开设备后通过 EVIOCGABS ioctl 读取实际量程，再线性映射到
  *   屏幕像素坐标，保证命中检测与 LCD 绘图坐标系完全一致。
+ *
+ * 点击策略：
+ *   - 以按下点与抬起点的曼哈顿距离判定是否为点击
+ *   - 有效点击返回“按下/抬起中点”，降低轻微手抖导致的命中偏移
+ *   - 超时版接口额外放宽阈值，提升高频刷新页面的点击成功率
  */
 
 #include "touch.h"
@@ -73,6 +78,7 @@ static inline int map_coord(int raw, const TouchRange *r, int screen_size)
  * ================================================================ */
 int touch_get_tap(int *out_x, int *out_y)
 {
+    /* 每次调用独立打开一次设备，避免跨模块共享 fd 带来的状态干扰 */
     int fd = open(TOUCH_DEV, O_RDONLY);
     if (fd < 0) {
         perror("touch_get_tap: open " TOUCH_DEV);
@@ -88,6 +94,7 @@ int touch_get_tap(int *out_x, int *out_y)
     int tap_x = 0, tap_y = 0;   /* 屏幕像素坐标 */
 
     while (1) {
+        /* 读取 input_event；若不是完整事件则丢弃 */
         if (read(fd, &ev, sizeof(ev)) != sizeof(ev))
             continue;
 
@@ -102,14 +109,15 @@ int touch_get_tap(int *out_x, int *out_y)
                 tap_x = map_coord(raw_x, &rx, g_lcd_width);
                 tap_y = map_coord(raw_y, &ry, g_lcd_height);
             } else if (ev.value == 0) {
-                /* 抬起：映射当前坐标，计算曼哈顿距离（单位：像素） */
+                /* 抬起：映射当前坐标并计算位移，判定是否为有效点击 */
                 int cur_px = map_coord(raw_x, &rx, g_lcd_width);
                 int cur_py = map_coord(raw_y, &ry, g_lcd_height);
                 int dist   = abs_val(cur_px - tap_x) + abs_val(cur_py - tap_y);
-                if (dist < TAP_THRESHOLD) {
+                if (dist <= TAP_THRESHOLD) {
                     close(fd);
-                    *out_x = tap_x;
-                    *out_y = tap_y;
+                    /* 使用按下/抬起中点，减小手抖造成的命中偏移 */
+                    *out_x = (tap_x + cur_px) / 2;
+                    *out_y = (tap_y + cur_py) / 2;
                     return 0;
                 }
                 /* 滑动 → 忽略，继续等待 */
@@ -123,6 +131,7 @@ int touch_get_tap(int *out_x, int *out_y)
  * ================================================================ */
 TouchDir touch_get_event(int *out_x, int *out_y)
 {
+    /* 事件模式用于需要区分滑动方向的页面（相册/音乐） */
     int fd = open(TOUCH_DEV, O_RDONLY);
     if (fd < 0) {
         perror("touch_get_event: open " TOUCH_DEV);
@@ -150,6 +159,7 @@ TouchDir touch_get_event(int *out_x, int *out_y)
 
         if (ev.type == EV_KEY && ev.code == BTN_TOUCH) {
             if (ev.value == 1) {
+                /* 记录按下起点，抬起后计算位移方向 */
                 tap_x = map_coord(raw_x, &rx, g_lcd_width);
                 tap_y = map_coord(raw_y, &ry, g_lcd_height);
             } else if (ev.value == 0) {
@@ -164,6 +174,7 @@ TouchDir touch_get_event(int *out_x, int *out_y)
                 int abs_dx = abs_val(dx);
                 int abs_dy = abs_val(dy);
 
+                /* 位移小于滑动阈值则判定为点击 */
                 if (abs_dx < SLIDE_THRESHOLD && abs_dy < SLIDE_THRESHOLD)
                     return DIR_TAP;
 
@@ -181,6 +192,12 @@ TouchDir touch_get_event(int *out_x, int *out_y)
  * ================================================================ */
 int touch_get_tap_timeout(int *out_x, int *out_y, int timeout_ms)
 {
+    /*
+     * 该接口用于“周期刷新 + 点击响应”场景（如传感器页）：
+     * - ret=1: 捕获到有效点击
+     * - ret=0: 在 timeout_ms 内未点击
+     * - ret=-1: 设备或系统调用异常
+     */
     int fd = open(TOUCH_DEV, O_RDONLY);
     if (fd < 0) {
         perror("touch_get_tap_timeout: open " TOUCH_DEV);
@@ -194,6 +211,8 @@ int touch_get_tap_timeout(int *out_x, int *out_y, int timeout_ms)
     struct input_event ev;
     int raw_x = 0, raw_y = 0;
     int tap_x = 0, tap_y = 0;
+    /* 超时版适当放宽点击阈值，提高高刷新页面上的触控容错 */
+    const int tap_threshold = TAP_THRESHOLD + 10;
 
     struct timeval tv;
     tv.tv_sec  = timeout_ms / 1000;
@@ -204,6 +223,7 @@ int touch_get_tap_timeout(int *out_x, int *out_y, int timeout_ms)
         FD_ZERO(&rfds);
         FD_SET(fd, &rfds);
 
+        /* select 同时承担“等待触摸事件”和“超时计时” */
         int ret = select(fd + 1, &rfds, NULL, NULL, &tv);
         if (ret == 0) { close(fd); return 0; }
         if (ret <  0) { close(fd); return -1; }
@@ -224,10 +244,11 @@ int touch_get_tap_timeout(int *out_x, int *out_y, int timeout_ms)
                 int cur_px = map_coord(raw_x, &rx, g_lcd_width);
                 int cur_py = map_coord(raw_y, &ry, g_lcd_height);
                 int dist   = abs_val(cur_px - tap_x) + abs_val(cur_py - tap_y);
-                if (dist < TAP_THRESHOLD) {
+                if (dist <= tap_threshold) {
                     close(fd);
-                    *out_x = tap_x;
-                    *out_y = tap_y;
+                    /* 超时版适当放宽阈值，降低点击偶发漏判 */
+                    *out_x = (tap_x + cur_px) / 2;
+                    *out_y = (tap_y + cur_py) / 2;
                     return 1;
                 }
             }

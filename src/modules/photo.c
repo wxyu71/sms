@@ -154,6 +154,12 @@ static int load_and_scale_bmp(const char *path, unsigned short *dst_buf, int dst
 #define PBH  60
 #define PBY 390
 
+/* 与其它模块统一的浅色页面背景风格 */
+#define PHOTO_BG_COLOR          RGB565(236, 236, 236)
+#define PHOTO_HEADER_BG_COLOR   RGB565(236, 236, 236)
+#define PHOTO_TEXT_COLOR        RGB565( 24,  24,  24)
+#define PHOTO_SUBTEXT_COLOR     RGB565( 88,  88,  88)
+
 typedef enum { PBTN_PREV = 0, PBTN_EXIT, PBTN_NEXT, PBTN_COUNT } PhotoBtnId;
 
 static const Button s_buttons[PBTN_COUNT] = {
@@ -164,10 +170,10 @@ static const Button s_buttons[PBTN_COUNT] = {
 
 static void draw_frame(void)
 {
-    lcd_fill_rect(0, 0, g_lcd_width, g_lcd_height, COLOR_BG_DARK);
-    lcd_fill_rect(0, 0, g_lcd_width, 55, COLOR_HEADER_BG);
+    lcd_fill_rect(0, 0, g_lcd_width, g_lcd_height, PHOTO_BG_COLOR);
+    lcd_fill_rect(0, 0, g_lcd_width, 55, PHOTO_HEADER_BG_COLOR);
     lcd_draw_hline(0, 55, g_lcd_width, 3, COLOR_PHOTO_BORDER);
-    lcd_draw_string(324, 20, "PHOTO ALBUM", COLOR_WHITE, COLOR_HEADER_BG);
+    lcd_draw_string(324, 20, "PHOTO ALBUM", PHOTO_TEXT_COLOR, PHOTO_HEADER_BG_COLOR);
 
     for (int i = 0; i < PBTN_COUNT; i++)
         ui_draw_button(&s_buttons[i]);
@@ -196,8 +202,8 @@ static void draw_photo_info(int idx)
     char info[16];
     snprintf(info, sizeof(info), "%d / %d", idx + 1, BMP_COUNT);
     int len = (int)strlen(info);
-    lcd_fill_rect(0, 365, g_lcd_width, 20, COLOR_BG_DARK);
-    lcd_draw_string((g_lcd_width - len * 8) / 2, 365, info, COLOR_GRAY_LIGHT, COLOR_BG_DARK);
+    lcd_fill_rect(0, 365, g_lcd_width, 20, PHOTO_BG_COLOR);
+    lcd_draw_string((g_lcd_width - len * 8) / 2, 365, info, PHOTO_SUBTEXT_COLOR, PHOTO_BG_COLOR);
 }
 
 /**

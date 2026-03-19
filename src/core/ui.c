@@ -1,5 +1,13 @@
 /**
  * ui.c — UI 组件层实现
+ *
+ * 本文件提供两个核心能力：
+ * 1) 按统一风格绘制按钮
+ * 2) 对触摸坐标做矩形命中检测
+ *
+ * 说明：
+ * - 命中检测与绘制解耦。即使按钮不绘制（透明热区），
+ *   依然可以复用 ui_hit_test 完成点击映射。
  */
 
 #include "ui.h"
@@ -21,8 +29,10 @@ void ui_draw_button(const Button *btn)
     /* 3. 内侧高亮边框（亮色，模拟发光轮廓） */
     lcd_draw_border(btn->x, btn->y, btn->w, btn->h, 2, btn->color_border);
 
-    /* 4. 文字居中
-     *    字符宽 8px，高 16px；双行时总高 38px（16 + 6间距 + 16）
+    /*
+     * 4. 文字居中
+     * - 字符宽 8px，高 16px
+     * - 双行时总高 38px（16 + 6 间距 + 16）
      */
     int len1   = (int)strlen(btn->line1);
     int text_x = btn->x + (btn->w - len1 * 8) / 2;
@@ -47,6 +57,12 @@ void ui_draw_button(const Button *btn)
  * ================================================================ */
 const Button *ui_hit_test(const Button *buttons, int count, int x, int y)
 {
+    /*
+     * 左闭右开区间：
+     * x in [b->x, b->x + b->w)
+     * y in [b->y, b->y + b->h)
+     * 这样相邻按钮共享边界时不会重复命中。
+     */
     for (int i = 0; i < count; i++) {
         const Button *b = &buttons[i];
         if (x >= b->x && x < b->x + b->w &&
