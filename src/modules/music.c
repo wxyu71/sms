@@ -1,3 +1,5 @@
+#define _POSIX_C_SOURCE 200809L
+
 /**
  * music.c — 音乐播放器模块（musicPanel 背景 + madplay 控制）
  *
@@ -26,6 +28,11 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <time.h>
+
+#ifndef PATH_MAX
+#define PATH_MAX 4096
+#endif
 
 static const char *const MUSIC_PANEL_BMP_CANDIDATES[] = {
     "assets/images/musicPanel.bmp",
@@ -184,6 +191,14 @@ static void player_reap_if_exited(void)
     }
 }
 
+static void sleep_ms(int ms)
+{
+    struct timespec ts;
+    ts.tv_sec = ms / 1000;
+    ts.tv_nsec = (long)(ms % 1000) * 1000000L;
+    nanosleep(&ts, NULL);
+}
+
 static void player_stop(void)
 {
     player_reap_if_exited();
@@ -201,7 +216,7 @@ static void player_stop(void)
         pid_t ret = waitpid(g_player_pid, NULL, WNOHANG);
         if (ret == g_player_pid)
             break;
-        usleep(10000);
+        sleep_ms(10);
     }
 
     if (waitpid(g_player_pid, NULL, WNOHANG) == 0) {
