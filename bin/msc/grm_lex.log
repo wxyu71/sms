@@ -1228,3 +1228,33 @@ Time  2017/01/01 02:30:40 503
 [2017/01/01 02:30:40 617] grm_lex    174  grammar_list  :  call  
 [2017/01/01 02:30:40 653] grm_lex    260  ISR_MSG_UPDATELEXICON ret =  0  
 [2017/01/01 02:30:40 967] grm_lex    71   0  call  
+============================================================
+Time  2026/03/19 09:13:42 446 
+============================================================
+[2026/03/19 09:13:42 447] grm_lex    264  SYS_MSG_LOAD  
+[2026/03/19 09:13:42 455] grm_lex    281  SYS_MSG_REGCB  
+[2026/03/19 09:13:42 462] grm_lex    267  SYS_MSG_UNLOAD  
+[2026/03/19 09:13:42 467] grm_lex    281  SYS_MSG_REGCB  
+[2026/03/19 09:13:42 473] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2026/03/19 09:13:42 475] grm_lex    100  grm_type :  bnf  
+[2026/03/19 09:13:42 476] grm_lex    106  engine_type  :  local  
+[2026/03/19 09:13:42 478] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2026/03/19 09:13:42 480] grm_lex    106  sample_rate  :  16000  
+[2026/03/19 09:13:42 482] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2026/03/19 09:13:42 530] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2026/03/19 09:13:42 621] grm_lex    71   11212  nil  
+============================================================
+Time  2017/01/01 00:00:05 160 
+============================================================
+[2017/01/01 00:00:05 161] grm_lex    264  SYS_MSG_LOAD  
+[2017/01/01 00:00:05 165] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 00:00:05 172] grm_lex    267  SYS_MSG_UNLOAD  
+[2017/01/01 00:00:05 178] grm_lex    281  SYS_MSG_REGCB  
+[2017/01/01 00:00:05 184] grm_lex    251  ISR_MSG_BUILDGRAMMAR  
+[2017/01/01 00:00:05 186] grm_lex    100  grm_type :  bnf  
+[2017/01/01 00:00:05 187] grm_lex    106  engine_type  :  local  
+[2017/01/01 00:00:05 189] grm_lex    106  asr_res_path  :  fo|res/asr/common.jet  
+[2017/01/01 00:00:05 191] grm_lex    106  sample_rate  :  16000  
+[2017/01/01 00:00:05 192] grm_lex    106  grm_build_path  :  res/asr/GrmBuilld  
+[2017/01/01 00:00:05 207] grm_lex    254  ISR_MSG_BUILDGRAMMAR ret =  0  
+[2017/01/01 00:00:05 414] grm_lex    71   0  call  
