@@ -10,7 +10,6 @@
 #include "lcd.h"
 
 #include <stdio.h>
-#include <string.h>   /* memcpy */
 #include <fcntl.h>
 #include <unistd.h>
 #include <sys/mman.h>
@@ -137,6 +136,7 @@ static inline void set_pixel(int x, int y, unsigned short color)
 
 int lcd_open(void)
 {
+    /* 打开 Linux 帧缓冲设备 */
     s_lcd.fd = open(FB_DEV, O_RDWR);
     if (s_lcd.fd < 0) {
         perror("lcd_open: open " FB_DEV);
@@ -155,6 +155,11 @@ int lcd_open(void)
 
     /* GEC6818 帧缓冲为 32-bit XRGB8888，每像素 4 字节 */
     size_t fb_size = (size_t)(g_lcd_width * g_lcd_height) * sizeof(unsigned int);
+
+    /*
+     * 映射显存到用户态：
+     * 后续所有绘图操作都直接写这块内存，不再频繁 write()/ioctl()。
+     */
     s_lcd.pixels = (unsigned int *)mmap(NULL, fb_size,
                         PROT_READ | PROT_WRITE, MAP_SHARED, s_lcd.fd, 0);
     if (s_lcd.pixels == MAP_FAILED) {
@@ -167,6 +172,7 @@ int lcd_open(void)
 
 void lcd_close(void)
 {
+    /* 与 lcd_open 成对释放资源 */
     size_t fb_size = (size_t)(g_lcd_width * g_lcd_height) * sizeof(unsigned int);
     munmap(s_lcd.pixels, fb_size);
     close(s_lcd.fd);
@@ -178,6 +184,7 @@ void lcd_close(void)
 
 void lcd_fill_rect(int x, int y, int w, int h, unsigned short color)
 {
+    /* 通过 set_pixel 的边界保护，允许输入区域部分越界 */
     for (int row = y; row < y + h; row++)
         for (int col = x; col < x + w; col++)
             set_pixel(col, row, color);
@@ -211,9 +218,10 @@ void lcd_draw_pixel(int x, int y, unsigned short color)
  * lcd_draw_image - 批量写入 RGB565 像素缓冲区到屏幕矩形区域
  *
  * 优化策略：
- *   - 以屏幕行为单位，每行一次 memcpy，利用 CPU 缓存行对齐
+ *   - 先裁剪再绘制，只处理屏幕可见区域
  *   - 仅在目标区域与屏幕有交集时才写入，边界安全
  *   - 源缓冲区行偏移与目标裁剪独立计算，不依赖额外辅助缓冲
+ *   - 由于源是 RGB565、帧缓冲是 XRGB8888，按像素转换写入
  */
 void lcd_draw_image(int x, int y, int w, int h, const unsigned short *pixels)
 {
@@ -228,11 +236,7 @@ void lcd_draw_image(int x, int y, int w, int h, const unsigned short *pixels)
 
     int copy_w = x1 - x0;
 
-    /*
-     * 帧缓冲为 32-bit XRGB8888，源缓冲为 16-bit RGB565，
-     * 必须逐像素转换，不能直接 memcpy。
-     * 内层循环按行连续访问，保持良好的空间局部性。
-     */
+    /* 帧缓冲是 32 位，源图是 16 位，逐像素转换后写入 */
     for (int row = y0; row < y1; row++) {
         const unsigned short *src = pixels + (row - y) * w + (x0 - x);
         unsigned int         *dst = s_lcd.pixels + row * g_lcd_width + x0;
