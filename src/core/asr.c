@@ -352,6 +352,9 @@ static int run_asr(UserData *udata, const char *pcm_path)
 	if (final_rslt != NULL) {
 		g_voice_last_id = parse_voice_id(final_rslt);
 		printf("id = %d\n", g_voice_last_id);
+		if (g_voice_last_id < 0) {
+			printf("raw result: %s\n", final_rslt);
+		}
 	} else {
 		printf("没有识别结果！\n");
 	}

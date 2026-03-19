@@ -166,11 +166,15 @@ int main(int argc, char **argv)
 
             int asr_ret = voice_identify(pcm_path);
             int id = voice_get_last_id();
-            unlink(pcm_path);
 
-            if (asr_ret != 0 || id < 0) {
-                /* 识别失败：返回 -1 给 client */
+            int ok = (asr_ret == 0 && id >= 0);
+            if (!ok) {
+                /* 识别失败：保留 PCM 便于排查 */
+                fprintf(stderr, "ASR failed (ret=%d id=%d), kept pcm: %s\n", asr_ret, id, pcm_path);
+                fprintf(stderr, "Try play on VM: aplay -r16000 -c1 -f S16_LE -t raw %s\n", pcm_path);
                 id = -1;
+            } else {
+                unlink(pcm_path);
             }
 
             if (write_full(conn, &id, 4) != 0)
