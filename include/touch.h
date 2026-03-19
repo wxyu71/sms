@@ -61,4 +61,14 @@ int touch_get_tap_timeout(int *out_x, int *out_y, int timeout_ms);
  */
 TouchDir touch_get_event(int *out_x, int *out_y);
 
+/**
+ * touch_get_event_timeout - 带超时的触摸事件等待
+ *
+ * 在 timeout_ms 内等待触摸事件：
+ * - 若发生点击/滑动：返回对应 TouchDir，out_x/out_y 为按下点坐标
+ * - 若超时未发生任何触摸：返回 DIR_TAP，且 out_x/out_y 置为 -1
+ * - 若设备错误：返回 DIR_TAP，且 out_x/out_y 置为 -1
+ */
+TouchDir touch_get_event_timeout(int *out_x, int *out_y, int timeout_ms);
+
 #endif /* TOUCH_H */

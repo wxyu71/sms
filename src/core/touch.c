@@ -188,6 +188,86 @@ TouchDir touch_get_event(int *out_x, int *out_y)
 }
 
 /* ================================================================
+ * touch_get_event_timeout
+ * ================================================================ */
+TouchDir touch_get_event_timeout(int *out_x, int *out_y, int timeout_ms)
+{
+    int fd = open(TOUCH_DEV, O_RDONLY);
+    if (fd < 0) {
+        perror("touch_get_event_timeout: open " TOUCH_DEV);
+        *out_x = -1;
+        *out_y = -1;
+        return DIR_TAP;
+    }
+
+    TouchRange rx, ry;
+    touch_read_range(fd, ABS_X, &rx);
+    touch_read_range(fd, ABS_Y, &ry);
+
+    struct input_event ev;
+    int raw_x = 0, raw_y = 0;
+    int tap_x = 0, tap_y = 0;
+
+    struct timeval tv;
+    tv.tv_sec  = timeout_ms / 1000;
+    tv.tv_usec = (timeout_ms % 1000) * 1000L;
+
+    while (1) {
+        fd_set rfds;
+        FD_ZERO(&rfds);
+        FD_SET(fd, &rfds);
+
+        int ret = select(fd + 1, &rfds, NULL, NULL, &tv);
+        if (ret == 0) {
+            close(fd);
+            *out_x = -1;
+            *out_y = -1;
+            return DIR_TAP;
+        }
+        if (ret < 0) {
+            close(fd);
+            *out_x = -1;
+            *out_y = -1;
+            return DIR_TAP;
+        }
+
+        if (read(fd, &ev, sizeof(ev)) != sizeof(ev))
+            continue;
+
+        if (ev.type == EV_ABS) {
+            if      (ev.code == ABS_X) raw_x = ev.value;
+            else if (ev.code == ABS_Y) raw_y = ev.value;
+        }
+
+        if (ev.type == EV_KEY && ev.code == BTN_TOUCH) {
+            if (ev.value == 1) {
+                tap_x = map_coord(raw_x, &rx, g_lcd_width);
+                tap_y = map_coord(raw_y, &ry, g_lcd_height);
+            } else if (ev.value == 0) {
+                close(fd);
+                int cur_px = map_coord(raw_x, &rx, g_lcd_width);
+                int cur_py = map_coord(raw_y, &ry, g_lcd_height);
+                *out_x = tap_x;
+                *out_y = tap_y;
+
+                int dx     = cur_px - tap_x;
+                int dy     = cur_py - tap_y;
+                int abs_dx = abs_val(dx);
+                int abs_dy = abs_val(dy);
+
+                if (abs_dx < SLIDE_THRESHOLD && abs_dy < SLIDE_THRESHOLD)
+                    return DIR_TAP;
+
+                if (abs_dx >= abs_dy)
+                    return (dx > 0) ? DIR_RIGHT : DIR_LEFT;
+                else
+                    return (dy > 0) ? DIR_DOWN  : DIR_UP;
+            }
+        }
+    }
+}
+
+/* ================================================================
  * touch_get_tap_timeout
  * ================================================================ */
 int touch_get_tap_timeout(int *out_x, int *out_y, int timeout_ms)

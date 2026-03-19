@@ -12,6 +12,7 @@
 #include "ui.h"
 #include "touch.h"
 #include "lcd.h"
+#include "voice_remote.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -298,7 +299,29 @@ void module_photo(void)
 
     while (1) {
         int x, y;
-        TouchDir dir = touch_get_event(&x, &y);
+        TouchDir dir = touch_get_event_timeout(&x, &y, 200);
+
+        /* 超时：没有触摸事件，轮询语音命令 */
+        if (x < 0 || y < 0) {
+            int voice_id = -1;
+            if (voice_remote_poll_id(&voice_id) == 1) {
+                if (voice_id == 2) {
+                    next = (cur - 1 + BMP_COUNT) % BMP_COUNT;
+                    slide_photo(cur, next, 0);
+                    cur = next;
+                    draw_photo_info(cur);
+                } else if (voice_id == 3) {
+                    next = (cur + 1) % BMP_COUNT;
+                    slide_photo(cur, next, 1);
+                    cur = next;
+                    draw_photo_info(cur);
+                } else if (voice_id == 4) {
+                    cleanup_photo_cache();
+                    return;
+                }
+            }
+            continue;
+        }
 
         if (dir == DIR_LEFT || dir == DIR_RIGHT) {
             int dir_left = (dir == DIR_LEFT);

@@ -38,6 +38,9 @@
 #include "sensor.h"
 #include "photo.h"
 
+/* 语音远程控制（录音→发到虚拟机→收 id） */
+#include "voice_remote.h"
+
 /* ================================================================
  * 一、主界面资源与透明点击区域
  * ================================================================ */
@@ -236,6 +239,10 @@ int main(void)
     draw_main_screen();
     printf("Main interface ready. Waiting for touch input...\n");
 
+    /* 可选：如果配置了 VOICE_SERVER_IP/PORT，则启动语音线程 */
+    if (voice_remote_start_from_env() == 0)
+        printf("Voice remote started.\n");
+
     /*
      * 主事件循环：
      * 1) 阻塞等待一次有效点击
@@ -244,13 +251,26 @@ int main(void)
      * 4) 子模块返回后重绘主界面
      */
     while (1) {
-        int tx, ty;
+        /* 先尝试消费一条语音命令（非阻塞） */
+        int voice_id = -1;
+        if (voice_remote_poll_id(&voice_id) == 1) {
+            if (voice_id == 1) {
+                /* 打开电子相册 */
+                module_photo();
+                draw_main_screen();
+                continue;
+            }
+        }
 
-        if (touch_get_tap(&tx, &ty) != 0) {
-            /* 触摸设备异常，安全退出 */
+        /* 带超时等待触摸：避免永久阻塞，给语音轮询留时间片 */
+        int tx, ty;
+        int tap = touch_get_tap_timeout(&tx, &ty, 200);
+        if (tap < 0) {
             fprintf(stderr, "Touch input error, exiting.\n");
             break;
         }
+        if (tap == 0)
+            continue;
 
         printf("Touch: (%d, %d)\n", tx, ty);
 

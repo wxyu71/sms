@@ -9,7 +9,7 @@
 
 CC      = gcc
 CFLAGS  = -Wall -Wextra -std=c99 -g -Iinclude
-LDFLAGS =
+LDFLAGS = -lpthread
 TARGET  = build/main
 CLIENT_TARGET = build/client
 SERVER_TARGET = build/mock_server
@@ -25,7 +25,7 @@ IFLYTEK_LIB ?= $(if $(wildcard libs/arm/libmsc.so),libs/arm,$(if $(wildcard libs
 
 ifeq ($(ASR),1)
 CFLAGS  += -DASR_WITH_IFLYTEK_SDK -I$(IFLYTEK_INC)
-LDFLAGS += -L$(IFLYTEK_LIB) -lmsc -ldl -lpthread -lm
+LDFLAGS += -L$(IFLYTEK_LIB) -lmsc -ldl -lm
 
 ifneq ($(strip $(ASR_APPID)),)
 CFLAGS  += -DASR_APPID=\"$(ASR_APPID)\"
@@ -38,6 +38,7 @@ SRCS    = src/core/main.c \
           src/core/touch.c \
           src/core/ui.c   \
           src/core/asr.c  \
+		  src/core/voice_remote.c \
           src/modules/led_beep.c \
           src/modules/music.c    \
           src/modules/sensor.c   \
